@@ -1,0 +1,1302 @@
+{
+    "records": [
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref1"
+            },
+            "Name": "White Rice",
+            "Description": "Long grain white rice for everyday cooking",
+            "Family": "Grains & Staples",
+            "ProductCode": "GS-001",
+            "QuantityUnitOfMeasure": "kg"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref2"
+            },
+            "Name": "Brown Rice",
+            "Description": "Whole grain brown rice high in fiber",
+            "Family": "Grains & Staples",
+            "ProductCode": "GS-002",
+            "QuantityUnitOfMeasure": "kg"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref3"
+            },
+            "Name": "All-Purpose Flour",
+            "Description": "Versatile wheat flour for baking and cooking",
+            "Family": "Grains & Staples",
+            "ProductCode": "GS-003",
+            "QuantityUnitOfMeasure": "kg"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref4"
+            },
+            "Name": "Bread Loaf",
+            "Description": "Soft sliced white sandwich bread",
+            "Family": "Bakery",
+            "ProductCode": "BK-001",
+            "QuantityUnitOfMeasure": "loaf"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref5"
+            },
+            "Name": "Whole Wheat Bread",
+            "Description": "Nutritious whole wheat sliced bread",
+            "Family": "Bakery",
+            "ProductCode": "BK-002",
+            "QuantityUnitOfMeasure": "loaf"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref6"
+            },
+            "Name": "Dinner Rolls",
+            "Description": "Soft fluffy dinner rolls pack of 6",
+            "Family": "Bakery",
+            "ProductCode": "BK-003",
+            "QuantityUnitOfMeasure": "pack"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref7"
+            },
+            "Name": "Croissant",
+            "Description": "Buttery flaky pastry croissant",
+            "Family": "Bakery",
+            "ProductCode": "BK-004",
+            "QuantityUnitOfMeasure": "piece"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref8"
+            },
+            "Name": "Whole Milk",
+            "Description": "Fresh full-fat cow's milk",
+            "Family": "Dairy & Eggs",
+            "ProductCode": "DE-001",
+            "QuantityUnitOfMeasure": "liter"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref9"
+            },
+            "Name": "Skim Milk",
+            "Description": "Low-fat skimmed cow's milk",
+            "Family": "Dairy & Eggs",
+            "ProductCode": "DE-002",
+            "QuantityUnitOfMeasure": "liter"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref10"
+            },
+            "Name": "Butter",
+            "Description": "Creamy unsalted butter block",
+            "Family": "Dairy & Eggs",
+            "ProductCode": "DE-003",
+            "QuantityUnitOfMeasure": "250g block"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref11"
+            },
+            "Name": "Cheddar Cheese",
+            "Description": "Mild cheddar cheese block",
+            "Family": "Dairy & Eggs",
+            "ProductCode": "DE-004",
+            "QuantityUnitOfMeasure": "250g block"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref12"
+            },
+            "Name": "Eggs",
+            "Description": "Fresh large chicken eggs",
+            "Family": "Dairy & Eggs",
+            "ProductCode": "DE-005",
+            "QuantityUnitOfMeasure": "dozen"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref13"
+            },
+            "Name": "Greek Yogurt",
+            "Description": "Thick and creamy plain Greek yogurt",
+            "Family": "Dairy & Eggs",
+            "ProductCode": "DE-006",
+            "QuantityUnitOfMeasure": "500g tub"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref14"
+            },
+            "Name": "Mozzarella Cheese",
+            "Description": "Fresh soft mozzarella cheese",
+            "Family": "Dairy & Eggs",
+            "ProductCode": "DE-007",
+            "QuantityUnitOfMeasure": "250g block"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref15"
+            },
+            "Name": "Chicken Breast",
+            "Description": "Fresh boneless skinless chicken breast",
+            "Family": "Meat & Seafood",
+            "ProductCode": "MS-001",
+            "QuantityUnitOfMeasure": "kg"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref16"
+            },
+            "Name": "Ground Beef",
+            "Description": "Fresh lean ground beef 80/20",
+            "Family": "Meat & Seafood",
+            "ProductCode": "MS-002",
+            "QuantityUnitOfMeasure": "kg"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref17"
+            },
+            "Name": "Pork Chops",
+            "Description": "Fresh bone-in pork loin chops",
+            "Family": "Meat & Seafood",
+            "ProductCode": "MS-003",
+            "QuantityUnitOfMeasure": "kg"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref18"
+            },
+            "Name": "Tilapia Fillet",
+            "Description": "Fresh tilapia fish fillet",
+            "Family": "Meat & Seafood",
+            "ProductCode": "MS-004",
+            "QuantityUnitOfMeasure": "kg"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref19"
+            },
+            "Name": "Shrimp",
+            "Description": "Fresh medium-sized shrimp peeled and deveined",
+            "Family": "Meat & Seafood",
+            "ProductCode": "MS-005",
+            "QuantityUnitOfMeasure": "kg"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref20"
+            },
+            "Name": "Canned Tuna",
+            "Description": "Tuna chunks in water 185g can",
+            "Family": "Canned & Packaged",
+            "ProductCode": "CP-001",
+            "QuantityUnitOfMeasure": "can"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref21"
+            },
+            "Name": "Canned Sardines",
+            "Description": "Sardines in tomato sauce 155g can",
+            "Family": "Canned & Packaged",
+            "ProductCode": "CP-002",
+            "QuantityUnitOfMeasure": "can"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref22"
+            },
+            "Name": "Canned Tomatoes",
+            "Description": "Whole peeled tomatoes in juice 400g",
+            "Family": "Canned & Packaged",
+            "ProductCode": "CP-003",
+            "QuantityUnitOfMeasure": "can"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref23"
+            },
+            "Name": "Canned Corn",
+            "Description": "Sweet whole kernel corn 400g can",
+            "Family": "Canned & Packaged",
+            "ProductCode": "CP-004",
+            "QuantityUnitOfMeasure": "can"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref24"
+            },
+            "Name": "Canned Beans",
+            "Description": "Red kidney beans in brine 400g",
+            "Family": "Canned & Packaged",
+            "ProductCode": "CP-005",
+            "QuantityUnitOfMeasure": "can"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref25"
+            },
+            "Name": "Tomato Ketchup",
+            "Description": "Classic tomato ketchup 500ml bottle",
+            "Family": "Condiments & Sauces",
+            "ProductCode": "CS-001",
+            "QuantityUnitOfMeasure": "bottle"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref26"
+            },
+            "Name": "Yellow Mustard",
+            "Description": "Classic yellow mustard squeeze bottle",
+            "Family": "Condiments & Sauces",
+            "ProductCode": "CS-002",
+            "QuantityUnitOfMeasure": "bottle"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref27"
+            },
+            "Name": "Soy Sauce",
+            "Description": "All-purpose light soy sauce 300ml",
+            "Family": "Condiments & Sauces",
+            "ProductCode": "CS-003",
+            "QuantityUnitOfMeasure": "bottle"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref28"
+            },
+            "Name": "Fish Sauce",
+            "Description": "Traditional fish sauce 300ml",
+            "Family": "Condiments & Sauces",
+            "ProductCode": "CS-004",
+            "QuantityUnitOfMeasure": "bottle"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref29"
+            },
+            "Name": "Oyster Sauce",
+            "Description": "Rich oyster-flavored sauce 300ml",
+            "Family": "Condiments & Sauces",
+            "ProductCode": "CS-005",
+            "QuantityUnitOfMeasure": "bottle"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref30"
+            },
+            "Name": "Mayonnaise",
+            "Description": "Classic creamy mayonnaise 400g jar",
+            "Family": "Condiments & Sauces",
+            "ProductCode": "CS-006",
+            "QuantityUnitOfMeasure": "jar"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref31"
+            },
+            "Name": "Hot Sauce",
+            "Description": "Spicy chili hot sauce 150ml bottle",
+            "Family": "Condiments & Sauces",
+            "ProductCode": "CS-007",
+            "QuantityUnitOfMeasure": "bottle"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref32"
+            },
+            "Name": "Vinegar",
+            "Description": "White distilled vinegar 500ml",
+            "Family": "Condiments & Sauces",
+            "ProductCode": "CS-008",
+            "QuantityUnitOfMeasure": "bottle"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref33"
+            },
+            "Name": "Olive Oil",
+            "Description": "Extra virgin olive oil 500ml",
+            "Family": "Oils & Fats",
+            "ProductCode": "OF-001",
+            "QuantityUnitOfMeasure": "bottle"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref34"
+            },
+            "Name": "Vegetable Oil",
+            "Description": "All-purpose vegetable cooking oil 1L",
+            "Family": "Oils & Fats",
+            "ProductCode": "OF-002",
+            "QuantityUnitOfMeasure": "bottle"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref35"
+            },
+            "Name": "Coconut Oil",
+            "Description": "Pure cold-pressed coconut oil 500ml",
+            "Family": "Oils & Fats",
+            "ProductCode": "OF-003",
+            "QuantityUnitOfMeasure": "jar"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref36"
+            },
+            "Name": "Salt",
+            "Description": "Iodized table salt 500g",
+            "Family": "Spices & Seasonings",
+            "ProductCode": "SS-001",
+            "QuantityUnitOfMeasure": "pack"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref37"
+            },
+            "Name": "Black Pepper",
+            "Description": "Ground black pepper 100g",
+            "Family": "Spices & Seasonings",
+            "ProductCode": "SS-002",
+            "QuantityUnitOfMeasure": "pack"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref38"
+            },
+            "Name": "Garlic Powder",
+            "Description": "Dried granulated garlic powder 80g",
+            "Family": "Spices & Seasonings",
+            "ProductCode": "SS-003",
+            "QuantityUnitOfMeasure": "pack"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref39"
+            },
+            "Name": "Onion Powder",
+            "Description": "Dried granulated onion powder 80g",
+            "Family": "Spices & Seasonings",
+            "ProductCode": "SS-004",
+            "QuantityUnitOfMeasure": "pack"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref40"
+            },
+            "Name": "Paprika",
+            "Description": "Sweet paprika powder 80g",
+            "Family": "Spices & Seasonings",
+            "ProductCode": "SS-005",
+            "QuantityUnitOfMeasure": "pack"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref41"
+            },
+            "Name": "Cumin",
+            "Description": "Ground cumin spice 80g",
+            "Family": "Spices & Seasonings",
+            "ProductCode": "SS-006",
+            "QuantityUnitOfMeasure": "pack"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref42"
+            },
+            "Name": "Chili Flakes",
+            "Description": "Dried red chili flakes 60g",
+            "Family": "Spices & Seasonings",
+            "ProductCode": "SS-007",
+            "QuantityUnitOfMeasure": "pack"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref43"
+            },
+            "Name": "Cinnamon",
+            "Description": "Ground cinnamon spice 80g",
+            "Family": "Spices & Seasonings",
+            "ProductCode": "SS-008",
+            "QuantityUnitOfMeasure": "pack"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref44"
+            },
+            "Name": "Bay Leaves",
+            "Description": "Dried whole bay leaves 20g",
+            "Family": "Spices & Seasonings",
+            "ProductCode": "SS-009",
+            "QuantityUnitOfMeasure": "pack"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref45"
+            },
+            "Name": "White Sugar",
+            "Description": "Refined granulated white sugar 1kg",
+            "Family": "Baking Supplies",
+            "ProductCode": "BS-001",
+            "QuantityUnitOfMeasure": "kg"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref46"
+            },
+            "Name": "Brown Sugar",
+            "Description": "Soft light brown sugar 500g",
+            "Family": "Baking Supplies",
+            "ProductCode": "BS-002",
+            "QuantityUnitOfMeasure": "pack"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref47"
+            },
+            "Name": "Baking Powder",
+            "Description": "Leavening agent for baking 100g",
+            "Family": "Baking Supplies",
+            "ProductCode": "BS-003",
+            "QuantityUnitOfMeasure": "pack"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref48"
+            },
+            "Name": "Baking Soda",
+            "Description": "Sodium bicarbonate 200g",
+            "Family": "Baking Supplies",
+            "ProductCode": "BS-004",
+            "QuantityUnitOfMeasure": "pack"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref49"
+            },
+            "Name": "Vanilla Extract",
+            "Description": "Pure vanilla extract 50ml bottle",
+            "Family": "Baking Supplies",
+            "ProductCode": "BS-005",
+            "QuantityUnitOfMeasure": "bottle"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref50"
+            },
+            "Name": "Cocoa Powder",
+            "Description": "Unsweetened cocoa powder 200g",
+            "Family": "Baking Supplies",
+            "ProductCode": "BS-006",
+            "QuantityUnitOfMeasure": "pack"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref51"
+            },
+            "Name": "Cornstarch",
+            "Description": "Fine cornstarch thickening agent 400g",
+            "Family": "Baking Supplies",
+            "ProductCode": "BS-007",
+            "QuantityUnitOfMeasure": "pack"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref52"
+            },
+            "Name": "Honey",
+            "Description": "Natural raw honey 500g jar",
+            "Family": "Baking Supplies",
+            "ProductCode": "BS-008",
+            "QuantityUnitOfMeasure": "jar"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref53"
+            },
+            "Name": "Apple",
+            "Description": "Fresh red apples",
+            "Family": "Fresh Produce",
+            "ProductCode": "FP-001",
+            "QuantityUnitOfMeasure": "kg"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref54"
+            },
+            "Name": "Banana",
+            "Description": "Fresh ripe bananas",
+            "Family": "Fresh Produce",
+            "ProductCode": "FP-002",
+            "QuantityUnitOfMeasure": "kg"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref55"
+            },
+            "Name": "Orange",
+            "Description": "Fresh navel oranges",
+            "Family": "Fresh Produce",
+            "ProductCode": "FP-003",
+            "QuantityUnitOfMeasure": "kg"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref56"
+            },
+            "Name": "Mango",
+            "Description": "Fresh ripe mangoes",
+            "Family": "Fresh Produce",
+            "ProductCode": "FP-004",
+            "QuantityUnitOfMeasure": "kg"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref57"
+            },
+            "Name": "Watermelon",
+            "Description": "Fresh whole watermelon",
+            "Family": "Fresh Produce",
+            "ProductCode": "FP-005",
+            "QuantityUnitOfMeasure": "piece"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref58"
+            },
+            "Name": "Tomato",
+            "Description": "Fresh ripe red tomatoes",
+            "Family": "Fresh Produce",
+            "ProductCode": "FP-006",
+            "QuantityUnitOfMeasure": "kg"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref59"
+            },
+            "Name": "Onion",
+            "Description": "Yellow cooking onions",
+            "Family": "Fresh Produce",
+            "ProductCode": "FP-007",
+            "QuantityUnitOfMeasure": "kg"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref60"
+            },
+            "Name": "Garlic",
+            "Description": "Fresh whole garlic bulb",
+            "Family": "Fresh Produce",
+            "ProductCode": "FP-008",
+            "QuantityUnitOfMeasure": "piece"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref61"
+            },
+            "Name": "Potato",
+            "Description": "Fresh Russet potatoes",
+            "Family": "Fresh Produce",
+            "ProductCode": "FP-009",
+            "QuantityUnitOfMeasure": "kg"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref62"
+            },
+            "Name": "Carrot",
+            "Description": "Fresh whole carrots",
+            "Family": "Fresh Produce",
+            "ProductCode": "FP-010",
+            "QuantityUnitOfMeasure": "kg"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref63"
+            },
+            "Name": "Cabbage",
+            "Description": "Fresh whole green cabbage head",
+            "Family": "Fresh Produce",
+            "ProductCode": "FP-011",
+            "QuantityUnitOfMeasure": "piece"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref64"
+            },
+            "Name": "Lettuce",
+            "Description": "Fresh iceberg lettuce head",
+            "Family": "Fresh Produce",
+            "ProductCode": "FP-012",
+            "QuantityUnitOfMeasure": "piece"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref65"
+            },
+            "Name": "Bell Pepper",
+            "Description": "Fresh red and green bell peppers",
+            "Family": "Fresh Produce",
+            "ProductCode": "FP-013",
+            "QuantityUnitOfMeasure": "piece"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref66"
+            },
+            "Name": "Cucumber",
+            "Description": "Fresh whole cucumber",
+            "Family": "Fresh Produce",
+            "ProductCode": "FP-014",
+            "QuantityUnitOfMeasure": "piece"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref67"
+            },
+            "Name": "Green Onion",
+            "Description": "Fresh spring onion bunch",
+            "Family": "Fresh Produce",
+            "ProductCode": "FP-015",
+            "QuantityUnitOfMeasure": "bunch"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref68"
+            },
+            "Name": "Instant Noodles",
+            "Description": "Chicken-flavored instant ramen noodles",
+            "Family": "Noodles & Pasta",
+            "ProductCode": "NP-001",
+            "QuantityUnitOfMeasure": "pack"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref69"
+            },
+            "Name": "Spaghetti",
+            "Description": "Dry spaghetti pasta 500g",
+            "Family": "Noodles & Pasta",
+            "ProductCode": "NP-002",
+            "QuantityUnitOfMeasure": "pack"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref70"
+            },
+            "Name": "Egg Noodles",
+            "Description": "Dried egg noodles 400g",
+            "Family": "Noodles & Pasta",
+            "ProductCode": "NP-003",
+            "QuantityUnitOfMeasure": "pack"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref71"
+            },
+            "Name": "Rice Noodles",
+            "Description": "Dried flat rice noodles 400g",
+            "Family": "Noodles & Pasta",
+            "ProductCode": "NP-004",
+            "QuantityUnitOfMeasure": "pack"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref72"
+            },
+            "Name": "Macaroni",
+            "Description": "Elbow macaroni pasta 500g",
+            "Family": "Noodles & Pasta",
+            "ProductCode": "NP-005",
+            "QuantityUnitOfMeasure": "pack"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref73"
+            },
+            "Name": "Drip Coffee",
+            "Description": "Medium roast ground drip coffee 250g",
+            "Family": "Beverages",
+            "ProductCode": "BV-001",
+            "QuantityUnitOfMeasure": "pack"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref74"
+            },
+            "Name": "Black Tea Bags",
+            "Description": "Classic black tea bags pack of 25",
+            "Family": "Beverages",
+            "ProductCode": "BV-002",
+            "QuantityUnitOfMeasure": "pack"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref75"
+            },
+            "Name": "Green Tea Bags",
+            "Description": "Light green tea bags pack of 25",
+            "Family": "Beverages",
+            "ProductCode": "BV-003",
+            "QuantityUnitOfMeasure": "pack"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref76"
+            },
+            "Name": "Orange Juice",
+            "Description": "100% fresh squeezed orange juice 1L",
+            "Family": "Beverages",
+            "ProductCode": "BV-004",
+            "QuantityUnitOfMeasure": "liter"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref77"
+            },
+            "Name": "Apple Juice",
+            "Description": "Clear apple juice 1L carton",
+            "Family": "Beverages",
+            "ProductCode": "BV-005",
+            "QuantityUnitOfMeasure": "liter"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref78"
+            },
+            "Name": "Mineral Water",
+            "Description": "Still mineral drinking water 1.5L",
+            "Family": "Beverages",
+            "ProductCode": "BV-006",
+            "QuantityUnitOfMeasure": "bottle"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref79"
+            },
+            "Name": "Cola Soda",
+            "Description": "Classic cola carbonated drink 1.5L",
+            "Family": "Beverages",
+            "ProductCode": "BV-007",
+            "QuantityUnitOfMeasure": "bottle"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref80"
+            },
+            "Name": "Lemon Soda",
+            "Description": "Lemon-lime carbonated soft drink 1.5L",
+            "Family": "Beverages",
+            "ProductCode": "BV-008",
+            "QuantityUnitOfMeasure": "bottle"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref81"
+            },
+            "Name": "Potato Chips",
+            "Description": "Salted crispy potato chips 150g",
+            "Family": "Snacks & Sweets",
+            "ProductCode": "SW-001",
+            "QuantityUnitOfMeasure": "pack"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref82"
+            },
+            "Name": "Peanuts",
+            "Description": "Roasted salted peanuts 200g",
+            "Family": "Snacks & Sweets",
+            "ProductCode": "SW-002",
+            "QuantityUnitOfMeasure": "pack"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref83"
+            },
+            "Name": "Crackers",
+            "Description": "Butter crackers snack pack 200g",
+            "Family": "Snacks & Sweets",
+            "ProductCode": "SW-003",
+            "QuantityUnitOfMeasure": "pack"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref84"
+            },
+            "Name": "Chocolate Bar",
+            "Description": "Milk chocolate candy bar 100g",
+            "Family": "Snacks & Sweets",
+            "ProductCode": "SW-004",
+            "QuantityUnitOfMeasure": "piece"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref85"
+            },
+            "Name": "Hard Candy",
+            "Description": "Assorted fruit hard candies 200g",
+            "Family": "Snacks & Sweets",
+            "ProductCode": "SW-005",
+            "QuantityUnitOfMeasure": "pack"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref86"
+            },
+            "Name": "Chewing Gum",
+            "Description": "Spearmint chewing gum 10 sticks",
+            "Family": "Snacks & Sweets",
+            "ProductCode": "SW-006",
+            "QuantityUnitOfMeasure": "pack"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref87"
+            },
+            "Name": "Dish Soap",
+            "Description": "Liquid dish washing soap 500ml",
+            "Family": "Household & Cleaning",
+            "ProductCode": "HC-001",
+            "QuantityUnitOfMeasure": "bottle"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref88"
+            },
+            "Name": "Laundry Detergent",
+            "Description": "Powder laundry detergent 1kg",
+            "Family": "Household & Cleaning",
+            "ProductCode": "HC-002",
+            "QuantityUnitOfMeasure": "pack"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref89"
+            },
+            "Name": "Fabric Softener",
+            "Description": "Liquid fabric conditioner 1L",
+            "Family": "Household & Cleaning",
+            "ProductCode": "HC-003",
+            "QuantityUnitOfMeasure": "bottle"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref90"
+            },
+            "Name": "Toilet Paper",
+            "Description": "2-ply toilet tissue rolls pack of 4",
+            "Family": "Household & Cleaning",
+            "ProductCode": "HC-004",
+            "QuantityUnitOfMeasure": "pack"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref91"
+            },
+            "Name": "Paper Towels",
+            "Description": "Absorbent paper towel roll",
+            "Family": "Household & Cleaning",
+            "ProductCode": "HC-005",
+            "QuantityUnitOfMeasure": "roll"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref92"
+            },
+            "Name": "Trash Bags",
+            "Description": "Heavy duty garbage bags 10 pcs",
+            "Family": "Household & Cleaning",
+            "ProductCode": "HC-006",
+            "QuantityUnitOfMeasure": "pack"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref93"
+            },
+            "Name": "All-Purpose Cleaner",
+            "Description": "Multi-surface spray cleaner 500ml",
+            "Family": "Household & Cleaning",
+            "ProductCode": "HC-007",
+            "QuantityUnitOfMeasure": "bottle"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref94"
+            },
+            "Name": "Bleach",
+            "Description": "Household liquid bleach 1L",
+            "Family": "Household & Cleaning",
+            "ProductCode": "HC-008",
+            "QuantityUnitOfMeasure": "bottle"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref95"
+            },
+            "Name": "Toothpaste",
+            "Description": "Fluoride toothpaste 150g",
+            "Family": "Personal Care",
+            "ProductCode": "PC-001",
+            "QuantityUnitOfMeasure": "tube"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref96"
+            },
+            "Name": "Toothbrush",
+            "Description": "Soft bristle toothbrush",
+            "Family": "Personal Care",
+            "ProductCode": "PC-002",
+            "QuantityUnitOfMeasure": "piece"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref97"
+            },
+            "Name": "Shampoo",
+            "Description": "Daily moisturizing shampoo 400ml",
+            "Family": "Personal Care",
+            "ProductCode": "PC-003",
+            "QuantityUnitOfMeasure": "bottle"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref98"
+            },
+            "Name": "Conditioner",
+            "Description": "Hair conditioner for smooth hair 400ml",
+            "Family": "Personal Care",
+            "ProductCode": "PC-004",
+            "QuantityUnitOfMeasure": "bottle"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref99"
+            },
+            "Name": "Bar Soap",
+            "Description": "Moisturizing bath bar soap 125g",
+            "Family": "Personal Care",
+            "ProductCode": "PC-005",
+            "QuantityUnitOfMeasure": "piece"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref100"
+            },
+            "Name": "Hand Sanitizer",
+            "Description": "Alcohol-based hand sanitizer 100ml",
+            "Family": "Personal Care",
+            "ProductCode": "PC-006",
+            "QuantityUnitOfMeasure": "bottle"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref101"
+            },
+            "Name": "Razor",
+            "Description": "Disposable razors pack of 5",
+            "Family": "Personal Care",
+            "ProductCode": "PC-007",
+            "QuantityUnitOfMeasure": "pack"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref102"
+            },
+            "Name": "Sanitary Pads",
+            "Description": "Ultra-thin sanitary napkins pack of 10",
+            "Family": "Personal Care",
+            "ProductCode": "PC-008",
+            "QuantityUnitOfMeasure": "pack"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref103"
+            },
+            "Name": "Bandages",
+            "Description": "Adhesive first aid bandage strips 20 pcs",
+            "Family": "Health & Medicine",
+            "ProductCode": "HM-001",
+            "QuantityUnitOfMeasure": "pack"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref104"
+            },
+            "Name": "Paracetamol",
+            "Description": "Paracetamol 500mg pain reliever 10 tabs",
+            "Family": "Health & Medicine",
+            "ProductCode": "HM-002",
+            "QuantityUnitOfMeasure": "pack"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref105"
+            },
+            "Name": "Antacid Tablets",
+            "Description": "Chewable antacid tablets 10 pcs",
+            "Family": "Health & Medicine",
+            "ProductCode": "HM-003",
+            "QuantityUnitOfMeasure": "pack"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref106"
+            },
+            "Name": "Vitamin C",
+            "Description": "Vitamin C 500mg supplement 30 tablets",
+            "Family": "Health & Medicine",
+            "ProductCode": "HM-004",
+            "QuantityUnitOfMeasure": "pack"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref107"
+            },
+            "Name": "Rubbing Alcohol",
+            "Description": "Isopropyl alcohol 70% 500ml",
+            "Family": "Health & Medicine",
+            "ProductCode": "HM-005",
+            "QuantityUnitOfMeasure": "bottle"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref108"
+            },
+            "Name": "Cotton Balls",
+            "Description": "Soft cotton balls 100 pcs",
+            "Family": "Health & Medicine",
+            "ProductCode": "HM-006",
+            "QuantityUnitOfMeasure": "pack"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref109"
+            },
+            "Name": "AA Batteries",
+            "Description": "AA alkaline batteries pack of 4",
+            "Family": "General Merchandise",
+            "ProductCode": "GM-001",
+            "QuantityUnitOfMeasure": "pack"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref110"
+            },
+            "Name": "AAA Batteries",
+            "Description": "AAA alkaline batteries pack of 4",
+            "Family": "General Merchandise",
+            "ProductCode": "GM-002",
+            "QuantityUnitOfMeasure": "pack"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref111"
+            },
+            "Name": "Lighter",
+            "Description": "Disposable butane lighter",
+            "Family": "General Merchandise",
+            "ProductCode": "GM-003",
+            "QuantityUnitOfMeasure": "piece"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref112"
+            },
+            "Name": "Matches",
+            "Description": "Safety matchbox 40 sticks",
+            "Family": "General Merchandise",
+            "ProductCode": "GM-004",
+            "QuantityUnitOfMeasure": "box"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref113"
+            },
+            "Name": "Candle",
+            "Description": "White wax pillar candle",
+            "Family": "General Merchandise",
+            "ProductCode": "GM-005",
+            "QuantityUnitOfMeasure": "piece"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref114"
+            },
+            "Name": "Rubber Bands",
+            "Description": "Assorted rubber bands 100 pcs",
+            "Family": "General Merchandise",
+            "ProductCode": "GM-006",
+            "QuantityUnitOfMeasure": "pack"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref115"
+            },
+            "Name": "Tape",
+            "Description": "Clear adhesive tape roll 25m",
+            "Family": "General Merchandise",
+            "ProductCode": "GM-007",
+            "QuantityUnitOfMeasure": "roll"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref116"
+            },
+            "Name": "Ballpen",
+            "Description": "Black ink ballpoint pen",
+            "Family": "General Merchandise",
+            "ProductCode": "GM-008",
+            "QuantityUnitOfMeasure": "piece"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref117"
+            },
+            "Name": "Notebook",
+            "Description": "Ruled spiral notebook 80 pages",
+            "Family": "General Merchandise",
+            "ProductCode": "GM-009",
+            "QuantityUnitOfMeasure": "piece"
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref118"
+            },
+            "Name": "Plastic Bag",
+            "Description": "Reusable shopping plastic bag large",
+            "Family": "General Merchandise",
+            "ProductCode": "GM-010",
+            "QuantityUnitOfMeasure": "piece"
+        }
+    ]
+}

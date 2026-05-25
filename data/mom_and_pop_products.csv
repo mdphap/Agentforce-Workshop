@@ -1,0 +1,119 @@
+Name,Description,Family,ProductCode,QuantityUnitOfMeasure
+White Rice,Long grain white rice for everyday cooking,Grains & Staples,GS-001,kg
+Brown Rice,Whole grain brown rice high in fiber,Grains & Staples,GS-002,kg
+All-Purpose Flour,Versatile wheat flour for baking and cooking,Grains & Staples,GS-003,kg
+Bread Loaf,Soft sliced white sandwich bread,Bakery,BK-001,loaf
+Whole Wheat Bread,Nutritious whole wheat sliced bread,Bakery,BK-002,loaf
+Dinner Rolls,Soft fluffy dinner rolls pack of 6,Bakery,BK-003,pack
+Croissant,Buttery flaky pastry croissant,Bakery,BK-004,piece
+Whole Milk,Fresh full-fat cow's milk,Dairy & Eggs,DE-001,liter
+Skim Milk,Low-fat skimmed cow's milk,Dairy & Eggs,DE-002,liter
+Butter,Creamy unsalted butter block,Dairy & Eggs,DE-003,250g block
+Cheddar Cheese,Mild cheddar cheese block,Dairy & Eggs,DE-004,250g block
+Eggs,Fresh large chicken eggs,Dairy & Eggs,DE-005,dozen
+Greek Yogurt,Thick and creamy plain Greek yogurt,Dairy & Eggs,DE-006,500g tub
+Mozzarella Cheese,Fresh soft mozzarella cheese,Dairy & Eggs,DE-007,250g block
+Chicken Breast,Fresh boneless skinless chicken breast,Meat & Seafood,MS-001,kg
+Ground Beef,Fresh lean ground beef 80/20,Meat & Seafood,MS-002,kg
+Pork Chops,Fresh bone-in pork loin chops,Meat & Seafood,MS-003,kg
+Tilapia Fillet,Fresh tilapia fish fillet,Meat & Seafood,MS-004,kg
+Shrimp,Fresh medium-sized shrimp peeled and deveined,Meat & Seafood,MS-005,kg
+Canned Tuna,Tuna chunks in water 185g can,Canned & Packaged,CP-001,can
+Canned Sardines,Sardines in tomato sauce 155g can,Canned & Packaged,CP-002,can
+Canned Tomatoes,Whole peeled tomatoes in juice 400g,Canned & Packaged,CP-003,can
+Canned Corn,Sweet whole kernel corn 400g can,Canned & Packaged,CP-004,can
+Canned Beans,Red kidney beans in brine 400g,Canned & Packaged,CP-005,can
+Tomato Ketchup,Classic tomato ketchup 500ml bottle,Condiments & Sauces,CS-001,bottle
+Yellow Mustard,Classic yellow mustard squeeze bottle,Condiments & Sauces,CS-002,bottle
+Soy Sauce,All-purpose light soy sauce 300ml,Condiments & Sauces,CS-003,bottle
+Fish Sauce,Traditional fish sauce 300ml,Condiments & Sauces,CS-004,bottle
+Oyster Sauce,Rich oyster-flavored sauce 300ml,Condiments & Sauces,CS-005,bottle
+Mayonnaise,Classic creamy mayonnaise 400g jar,Condiments & Sauces,CS-006,jar
+Hot Sauce,Spicy chili hot sauce 150ml bottle,Condiments & Sauces,CS-007,bottle
+Vinegar,White distilled vinegar 500ml,Condiments & Sauces,CS-008,bottle
+Olive Oil,Extra virgin olive oil 500ml,Oils & Fats,OF-001,bottle
+Vegetable Oil,All-purpose vegetable cooking oil 1L,Oils & Fats,OF-002,bottle
+Coconut Oil,Pure cold-pressed coconut oil 500ml,Oils & Fats,OF-003,jar
+Salt,Iodized table salt 500g,Spices & Seasonings,SS-001,pack
+Black Pepper,Ground black pepper 100g,Spices & Seasonings,SS-002,pack
+Garlic Powder,Dried granulated garlic powder 80g,Spices & Seasonings,SS-003,pack
+Onion Powder,Dried granulated onion powder 80g,Spices & Seasonings,SS-004,pack
+Paprika,Sweet paprika powder 80g,Spices & Seasonings,SS-005,pack
+Cumin,Ground cumin spice 80g,Spices & Seasonings,SS-006,pack
+Chili Flakes,Dried red chili flakes 60g,Spices & Seasonings,SS-007,pack
+Cinnamon,Ground cinnamon spice 80g,Spices & Seasonings,SS-008,pack
+Bay Leaves,Dried whole bay leaves 20g,Spices & Seasonings,SS-009,pack
+White Sugar,Refined granulated white sugar 1kg,Baking Supplies,BS-001,kg
+Brown Sugar,Soft light brown sugar 500g,Baking Supplies,BS-002,pack
+Baking Powder,Leavening agent for baking 100g,Baking Supplies,BS-003,pack
+Baking Soda,Sodium bicarbonate 200g,Baking Supplies,BS-004,pack
+Vanilla Extract,Pure vanilla extract 50ml bottle,Baking Supplies,BS-005,bottle
+Cocoa Powder,Unsweetened cocoa powder 200g,Baking Supplies,BS-006,pack
+Cornstarch,Fine cornstarch thickening agent 400g,Baking Supplies,BS-007,pack
+Honey,Natural raw honey 500g jar,Baking Supplies,BS-008,jar
+Apple,Fresh red apples,Fresh Produce,FP-001,kg
+Banana,Fresh ripe bananas,Fresh Produce,FP-002,kg
+Orange,Fresh navel oranges,Fresh Produce,FP-003,kg
+Mango,Fresh ripe mangoes,Fresh Produce,FP-004,kg
+Watermelon,Fresh whole watermelon,Fresh Produce,FP-005,piece
+Tomato,Fresh ripe red tomatoes,Fresh Produce,FP-006,kg
+Onion,Yellow cooking onions,Fresh Produce,FP-007,kg
+Garlic,Fresh whole garlic bulb,Fresh Produce,FP-008,piece
+Potato,Fresh Russet potatoes,Fresh Produce,FP-009,kg
+Carrot,Fresh whole carrots,Fresh Produce,FP-010,kg
+Cabbage,Fresh whole green cabbage head,Fresh Produce,FP-011,piece
+Lettuce,Fresh iceberg lettuce head,Fresh Produce,FP-012,piece
+Bell Pepper,Fresh red and green bell peppers,Fresh Produce,FP-013,piece
+Cucumber,Fresh whole cucumber,Fresh Produce,FP-014,piece
+Green Onion,Fresh spring onion bunch,Fresh Produce,FP-015,bunch
+Instant Noodles,Chicken-flavored instant ramen noodles,Noodles & Pasta,NP-001,pack
+Spaghetti,Dry spaghetti pasta 500g,Noodles & Pasta,NP-002,pack
+Egg Noodles,Dried egg noodles 400g,Noodles & Pasta,NP-003,pack
+Rice Noodles,Dried flat rice noodles 400g,Noodles & Pasta,NP-004,pack
+Macaroni,Elbow macaroni pasta 500g,Noodles & Pasta,NP-005,pack
+Drip Coffee,Medium roast ground drip coffee 250g,Beverages,BV-001,pack
+Black Tea Bags,Classic black tea bags pack of 25,Beverages,BV-002,pack
+Green Tea Bags,Light green tea bags pack of 25,Beverages,BV-003,pack
+Orange Juice,100% fresh squeezed orange juice 1L,Beverages,BV-004,liter
+Apple Juice,Clear apple juice 1L carton,Beverages,BV-005,liter
+Mineral Water,Still mineral drinking water 1.5L,Beverages,BV-006,bottle
+Cola Soda,Classic cola carbonated drink 1.5L,Beverages,BV-007,bottle
+Lemon Soda,Lemon-lime carbonated soft drink 1.5L,Beverages,BV-008,bottle
+Potato Chips,Salted crispy potato chips 150g,Snacks & Sweets,SW-001,pack
+Peanuts,Roasted salted peanuts 200g,Snacks & Sweets,SW-002,pack
+Crackers,Butter crackers snack pack 200g,Snacks & Sweets,SW-003,pack
+Chocolate Bar,Milk chocolate candy bar 100g,Snacks & Sweets,SW-004,piece
+Hard Candy,Assorted fruit hard candies 200g,Snacks & Sweets,SW-005,pack
+Chewing Gum,Spearmint chewing gum 10 sticks,Snacks & Sweets,SW-006,pack
+Dish Soap,Liquid dish washing soap 500ml,Household & Cleaning,HC-001,bottle
+Laundry Detergent,Powder laundry detergent 1kg,Household & Cleaning,HC-002,pack
+Fabric Softener,Liquid fabric conditioner 1L,Household & Cleaning,HC-003,bottle
+Toilet Paper,2-ply toilet tissue rolls pack of 4,Household & Cleaning,HC-004,pack
+Paper Towels,Absorbent paper towel roll,Household & Cleaning,HC-005,roll
+Trash Bags,Heavy duty garbage bags 10 pcs,Household & Cleaning,HC-006,pack
+All-Purpose Cleaner,Multi-surface spray cleaner 500ml,Household & Cleaning,HC-007,bottle
+Bleach,Household liquid bleach 1L,Household & Cleaning,HC-008,bottle
+Toothpaste,Fluoride toothpaste 150g,Personal Care,PC-001,tube
+Toothbrush,Soft bristle toothbrush,Personal Care,PC-002,piece
+Shampoo,Daily moisturizing shampoo 400ml,Personal Care,PC-003,bottle
+Conditioner,Hair conditioner for smooth hair 400ml,Personal Care,PC-004,bottle
+Bar Soap,Moisturizing bath bar soap 125g,Personal Care,PC-005,piece
+Hand Sanitizer,Alcohol-based hand sanitizer 100ml,Personal Care,PC-006,bottle
+Razor,Disposable razors pack of 5,Personal Care,PC-007,pack
+Sanitary Pads,Ultra-thin sanitary napkins pack of 10,Personal Care,PC-008,pack
+Bandages,Adhesive first aid bandage strips 20 pcs,Health & Medicine,HM-001,pack
+Paracetamol,Paracetamol 500mg pain reliever 10 tabs,Health & Medicine,HM-002,pack
+Antacid Tablets,Chewable antacid tablets 10 pcs,Health & Medicine,HM-003,pack
+Vitamin C,Vitamin C 500mg supplement 30 tablets,Health & Medicine,HM-004,pack
+Rubbing Alcohol,Isopropyl alcohol 70% 500ml,Health & Medicine,HM-005,bottle
+Cotton Balls,Soft cotton balls 100 pcs,Health & Medicine,HM-006,pack
+AA Batteries,AA alkaline batteries pack of 4,General Merchandise,GM-001,pack
+AAA Batteries,AAA alkaline batteries pack of 4,General Merchandise,GM-002,pack
+Lighter,Disposable butane lighter,General Merchandise,GM-003,piece
+Matches,Safety matchbox 40 sticks,General Merchandise,GM-004,box
+Candle,White wax pillar candle,General Merchandise,GM-005,piece
+Rubber Bands,Assorted rubber bands 100 pcs,General Merchandise,GM-006,pack
+Tape,Clear adhesive tape roll 25m,General Merchandise,GM-007,roll
+Ballpen,Black ink ballpoint pen,General Merchandise,GM-008,piece
+Notebook,Ruled spiral notebook 80 pages,General Merchandise,GM-009,piece
+Plastic Bag,Reusable shopping plastic bag large,General Merchandise,GM-010,piece

@@ -1,0 +1,26 @@
+﻿Conversation History,Utterance,Expected Subagent,Expected Actions,Expected Response
+,"hi, is Greek Yogurt available?",product_query,,"Yes, Greek Yogurt is available. It comes in a 500g tub and is described as thick and creamy plain Greek yogurt. Would you like to know more about its price or how you can use it in recipes?"
+,my friend suggested me to buy DE-006. What is it product?,product_query,,"DE-006 is Greek Yogurt. It is a thick and creamy plain Greek yogurt, available in a 500g tub. Would you like to know what meals you can prepare with Greek yogurt or need more details about the product?"
+,"morning, how much for a litre of Apple Juice?",product_query,,"A litre of Apple Juice costs 37,400."
+,"I wanna buy half a litre of Orange Juice, what would it cost?",product_query,,"Orange Juice is available in 1 liter cartons for 37,400. There is no half liter size listed. Would you like to buy the 1 liter carton, or need information about another beverage?"
+,"hi, how would Onion Powder be sold?",product_query,,"Onion Powder is sold as dried granulated onion powder in an 80g pack for 15,400. Would you like to know what meals you can prepare using onion powder?"
+,"Do you sell tamatos? If so, what’s the price?",product_query,,"Yes, we sell fresh ripe red tomatoes. The price is 17,600 per kilogram. Would you like to know about other fresh vegetables or how to use tomatoes in meals?"
+,"How much is the olive stuff you sell, and what size is it?",product_query,,"We do not have a product called ""olive stuff,"" but we do sell extra virgin olive oil. It comes in a 500ml bottle and costs 52,800. Is olive oil what you are looking for, or do you mean something else? If you want meal ideas using olive oil, I can help with that too."
+,My mom told me this shop sell extra large mana bottle? What’s the price per bottle? I need some for my boss raid,product_query,,"I do not see any product called ""mana bottle"" or anything similar in the shop's product list. Could you clarify if you meant a specific drink or supplement, or do you want a beverage like mineral water, lemon soda, or juice? Let me know what you need for your boss raid and I can recommend something from the available products"
+,get me all details you have about Oyster Sauce (CS-004),product_query,,"Oyster Sauce (CS-004) is not listed, but we do have Oyster Sauce with code CS-005. Here are the details:
+
+Product Name: Oyster Sauce
+Product Code: CS-005
+Description: Rich oyster-flavored sauce
+Size: 300ml bottle
+Unit Price: 24,200 per bottle"
+,what beverages you have in stock?,product_query,,"Here are the beverages currently in stock:
+
+Lemon Soda (Lemon-lime carbonated soft drink, 1.5L bottle)
+Cola Soda (Classic cola carbonated drink, 1.5L bottle)
+Mineral Water (Still mineral drinking water, 1.5L bottle)
+Apple Juice (Clear apple juice, 1L carton)
+Orange Juice (100% fresh squeezed orange juice, 1L)
+Green Tea Bags (Pack of 25)
+Black Tea Bags (Pack of 25)
+Drip Coffee (Medium roast ground drip coffee, 250g pack)"

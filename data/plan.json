@@ -1,0 +1,20 @@
+[
+    {
+        "sobject": "Pricebook2",
+        "files": [
+            "Pricebook2.json"
+        ]
+    },
+    {
+        "sobject": "Product2",
+        "files": [
+            "Product2.json"
+        ]
+    },
+    {
+        "sobject": "PricebookEntry",
+        "files": [
+            "PricebookEntryHydrated.json"
+        ]
+    }
+]

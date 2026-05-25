@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+
+    <types>
+        <members>PricebookEntry.Product_Name__c</members>
+        <members>PricebookEntry.Product_Description__c</members>
+        <members>PricebookEntry.Product_Unit_Of_Measure__c</members>
+        <members>Order.Original_Delivery_Address__c</members>
+        <name>CustomField</name>
+    </types>
+
+    <types>
+        <members>Get_Shop_Listed_Products</members>
+        <name>Flow</name>
+    </types>
+
+    <types>
+        <members>Shop_Assistant_Permission_Set</members>
+        <name>PermissionSet</name>
+    </types>
+
+    <types>
+        <members>Cart</members>
+        <members>CartItem</members>
+        <members>ShoppingCartAgentServices</members>
+        <members>InventoryAvailabilityAgentServices</members>
+        <members>OrderCheckoutAgentServices</members>
+        <name>ApexClass</name>
+    </types>
+
+    <types>
+        <members>Account.Business_Account</members>
+        <name>RecordType</name>
+    </types>
+
+    <types>
+        <members>Order-Order Layout</members>
+        <name>Layout</name>
+    </types>
+
+    <version>66.0</version>
+</Package>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+
+    <types>
+        <members>Shopping_Chat_Omni_Flow</members>
+        <name>Flow</name>
+    </types>
+
+    <types>
+        <members>Shopping_Chat</members>
+        <name>Queue</name>
+    </types>
+
+    <types>
+        <members>Shopping_Chat_Channel</members>
+        <name>MessagingChannel</name>
+    </types>
+
+    <types>
+        <members>Shopping_Chat_Channel</members>
+        <name>EmbeddedServiceConfig</name>
+    </types>
+
+    <types>
+        <members>Chat_Routing_Config</members>
+        <name>QueueRoutingConfig</name>
+    </types>
+
+    <types>
+        <members>Messaging_Session_Record_Page</members>
+        <name>Flexipage</name>
+    </types>
+
+    <version>66.0</version>
+</Package>

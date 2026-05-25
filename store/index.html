@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rosa & Manny's — Corner Store</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;1,9..144,400&family=DM+Sans:wght@300;400;500&family=Caveat:wght@600&display=swap"
+        rel="stylesheet" />
+    <style>
+        :root {
+            --ink: #1a1208;
+            --paper: #f7f2e8;
+            --paper-2: #ede7d6;
+            --leaf: #2d5a3d;
+            --leaf-mid: #4a8c62;
+            --leaf-pale: #d4e8da;
+            --clay: #a85c2c;
+            --clay-pale: #f0e0d0;
+            --gold: #c8982a;
+            --gold-pale: #faf0d4;
+            --mist: rgba(26, 18, 8, 0.06);
+            --radius: 16px;
+            --serif: 'Fraunces', Georgia, serif;
+            --sans: 'DM Sans', system-ui, sans-serif;
+            --script: 'Caveat', cursive;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--sans);
+            background: var(--paper);
+            color: var(--ink);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* ── GRAIN ── */
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 9999;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='0.03'/%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+        /* ── STICKY NAV ── */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: var(--leaf);
+            display: flex;
+            align-items: center;
+            padding: 0 clamp(16px, 4vw, 48px);
+            height: 58px;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.18);
+        }
+
+        .nav-logo {
+            font-family: var(--serif);
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--paper);
+            letter-spacing: -0.01em;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .nav-logo span {
+            font-style: italic;
+            color: #9dd4ac;
+        }
+
+        .nav-divider {
+            flex: 1;
+        }
+
+        .nav-cats {
+            display: flex;
+            align-items: center;
+            gap: 2px;
+            overflow-x: auto;
+            scrollbar-width: none;
+            padding: 0 16px;
+            mask-image: linear-gradient(to right, transparent, black 20px, black calc(100% - 20px), transparent);
+        }
+
+        .nav-cats::-webkit-scrollbar {
+            display: none;
+        }
+
+        .nav-cat {
+            background: none;
+            border: none;
+            color: rgba(255, 255, 255, 0.65);
+            font-family: var(--sans);
+            font-size: 0.78rem;
+            font-weight: 400;
+            padding: 6px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.18s;
+        }
+
+        .nav-cat:hover {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-ask-btn {
+            flex-shrink: 0;
+            background: var(--gold);
+            color: var(--ink);
+            border: none;
+            font-family: var(--script);
+            font-size: 1.05rem;
+            padding: 8px 20px;
+            border-radius: 24px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s;
+            box-shadow: 0 2px 12px rgba(200, 152, 42, 0.4);
+        }
+
+        .nav-ask-btn:hover {
+            background: #daa82e;
+            transform: translateY(-1px);
+        }
+
+        /* ── HERO ── */
+        .hero {
+            min-height: 100svh;
+            display: grid;
+            grid-template-rows: 1fr auto;
+            padding: clamp(28px, 4vw, 56px) clamp(20px, 6vw, 80px) 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Organic blob background */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: -15%;
+            width: 70vw;
+            height: 70vw;
+            max-width: 800px;
+            max-height: 800px;
+            background: radial-gradient(ellipse at 60% 40%, var(--leaf-pale) 0%, transparent 70%);
+            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+            animation: morph 12s ease-in-out infinite;
+            z-index: 0;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 5%;
+            left: -10%;
+            width: 50vw;
+            height: 50vw;
+            max-width: 600px;
+            max-height: 600px;
+            background: radial-gradient(ellipse, var(--clay-pale) 0%, transparent 65%);
+            border-radius: 60% 40% 30% 70% / 50% 60% 40% 50%;
+            animation: morph 16s ease-in-out infinite reverse;
+            z-index: 0;
+        }
+
+        @keyframes morph {
+
+            0%,
+            100% {
+                border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+            }
+
+            33% {
+                border-radius: 70% 30% 50% 50% / 30% 60% 40% 70%;
+            }
+
+            66% {
+                border-radius: 30% 70% 30% 70% / 60% 40% 60% 40%;
+            }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 820px;
+        }
+
+        .hero-eyebrow {
+            font-family: var(--script);
+            font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+            color: var(--clay);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+            animation: fadeUp 0.7s ease both;
+        }
+
+        .hero-eyebrow::before {
+            content: '';
+            display: inline-block;
+            width: 32px;
+            height: 2px;
+            background: var(--clay);
+            border-radius: 2px;
+        }
+
+        .hero-title {
+            font-family: var(--serif);
+            font-size: clamp(2.2rem, 5vw, 4.2rem);
+            font-weight: 300;
+            line-height: 1.05;
+            letter-spacing: -0.03em;
+            color: var(--ink);
+            animation: fadeUp 0.7s 0.1s ease both;
+        }
+
+        .hero-title strong {
+            font-weight: 700;
+            color: var(--leaf);
+        }
+
+        .hero-title em {
+            font-style: italic;
+            color: var(--clay);
+        }
+
+        .hero-desc {
+            margin-top: 16px;
+            font-size: clamp(0.9rem, 1.3vw, 1.05rem);
+            font-weight: 300;
+            color: #5a4a38;
+            max-width: 520px;
+            line-height: 1.6;
+            animation: fadeUp 0.7s 0.2s ease both;
+        }
+
+        .hero-cta {
+            margin-top: 24px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            align-items: center;
+            animation: fadeUp 0.7s 0.3s ease both;
+        }
+
+        .cta-primary {
+            background: var(--leaf);
+            color: #fff;
+            border: none;
+            font-family: var(--sans);
+            font-size: 1rem;
+            font-weight: 500;
+            padding: 16px 36px;
+            border-radius: 50px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.22s;
+            box-shadow: 0 6px 24px rgba(45, 90, 61, 0.35);
+        }
+
+        .cta-primary:hover {
+            background: var(--leaf-mid);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 32px rgba(45, 90, 61, 0.4);
+        }
+
+        .cta-primary .cta-icon {
+            width: 28px;
+            height: 28px;
+            background: rgba(255, 255, 255, 0.18);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.95rem;
+        }
+
+        .cta-hint {
+            font-family: var(--script);
+            font-size: 1rem;
+            color: var(--clay);
+        }
+
+        /* ── PROMPT CHIPS ── */
+        .prompt-chips {
+            margin-top: 32px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            animation: fadeUp 0.7s 0.4s ease both;
+        }
+
+        .prompt-chip {
+            background: var(--paper-2);
+            border: 1.5px solid #d8cebc;
+            color: #5a4030;
+            font-size: 0.83rem;
+            padding: 8px 16px;
+            border-radius: 24px;
+            cursor: pointer;
+            transition: all 0.18s;
+            font-family: var(--sans);
+        }
+
+        .prompt-chip:hover {
+            background: var(--leaf-pale);
+            border-color: var(--leaf-mid);
+            color: var(--leaf);
+            transform: translateY(-1px);
+        }
+
+        .prompt-chip::before {
+            content: '"';
+            opacity: 0.5;
+            margin-right: 2px;
+        }
+
+        .prompt-chip::after {
+            content: '"';
+            opacity: 0.5;
+            margin-left: 2px;
+        }
+
+        /* ── SCROLL TICKER ── */
+        .ticker-wrap {
+            position: relative;
+            z-index: 1;
+            margin-top: 64px;
+            border-top: 1px solid var(--paper-2);
+            padding: 18px 0;
+            overflow: hidden;
+        }
+
+        .ticker-track {
+            display: flex;
+            gap: 0;
+            animation: ticker 28s linear infinite;
+            width: max-content;
+        }
+
+        @keyframes ticker {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        .ticker-item {
+            white-space: nowrap;
+            font-family: var(--script);
+            font-size: 1rem;
+            color: var(--clay);
+            padding: 0 28px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .ticker-dot {
+            width: 5px;
+            height: 5px;
+            background: var(--leaf-mid);
+            border-radius: 50%;
+        }
+
+        /* ── AI EXPLAINER SECTION ── */
+        .section {
+            padding: clamp(60px, 8vw, 100px) clamp(20px, 6vw, 80px);
+        }
+
+        .section-label {
+            font-family: var(--script);
+            font-size: 1.1rem;
+            color: var(--clay);
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-family: var(--serif);
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+
+        .how-grid {
+            margin-top: 56px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+        }
+
+        .how-card {
+            background: #fff;
+            border: 1px solid #e8dfd0;
+            border-radius: var(--radius);
+            padding: 32px 28px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.22s, box-shadow 0.22s;
+        }
+
+        .how-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 48px rgba(26, 18, 8, 0.1);
+        }
+
+        .how-num {
+            font-family: var(--serif);
+            font-size: 5rem;
+            font-weight: 700;
+            color: var(--mist);
+            position: absolute;
+            top: -10px;
+            right: 16px;
+            line-height: 1;
+            pointer-events: none;
+        }
+
+        .how-icon {
+            font-size: 2.2rem;
+            margin-bottom: 18px;
+            display: block;
+        }
+
+        .how-card h3 {
+            font-family: var(--serif);
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .how-card p {
+            font-size: 0.9rem;
+            line-height: 1.65;
+            color: #6a5848;
+        }
+
+        /* ── CATALOG PREVIEW ── */
+        .catalog-section {
+            padding: clamp(40px, 6vw, 80px) clamp(20px, 6vw, 80px);
+            background: var(--paper-2);
+        }
+
+        .catalog-header {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 36px;
+        }
+
+        .catalog-title {
+            font-family: var(--serif);
+            font-size: clamp(1.6rem, 3vw, 2.4rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .catalog-sub {
+            font-size: 0.88rem;
+            color: #7a6858;
+            font-style: italic;
+            font-family: var(--sans);
+        }
+
+        .catalog-ask-btn {
+            background: var(--leaf);
+            color: #fff;
+            border: none;
+            font-family: var(--sans);
+            font-size: 0.88rem;
+            font-weight: 500;
+            padding: 10px 22px;
+            border-radius: 24px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s;
+        }
+
+        .catalog-ask-btn:hover {
+            background: var(--leaf-mid);
+        }
+
+        /* Category pills */
+        .cat-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 28px;
+        }
+
+        .cat-pill {
+            background: var(--paper);
+            border: 1.5px solid #d8cebc;
+            color: #5a4030;
+            font-size: 0.8rem;
+            font-weight: 500;
+            padding: 6px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.18s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .cat-pill.active,
+        .cat-pill:hover {
+            background: var(--leaf);
+            border-color: var(--leaf);
+            color: #fff;
+        }
+
+        .cat-pill-emoji {
+            font-size: 0.95rem;
+        }
+
+        /* Product mosaic — AI first: no add-to-cart, info only for browsing context */
+        .product-mosaic {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 12px;
+        }
+
+        .prod-tile {
+            background: var(--paper);
+            border: 1px solid #e2d8c8;
+            border-radius: 12px;
+            padding: 16px 12px 12px;
+            text-align: center;
+            transition: all 0.2s;
+            cursor: default;
+            position: relative;
+        }
+
+        .prod-tile:hover {
+            border-color: var(--leaf-mid);
+            background: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(45, 90, 61, 0.1);
+        }
+
+        .prod-emoji {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .prod-name {
+            font-family: var(--sans);
+            font-weight: 500;
+            font-size: 0.8rem;
+            color: var(--ink);
+            line-height: 1.3;
+        }
+
+        .prod-uom {
+            font-size: 0.68rem;
+            color: #9a8878;
+            margin-top: 4px;
+            font-style: italic;
+        }
+
+        .prod-code {
+            font-family: var(--script);
+            font-size: 0.72rem;
+            color: var(--clay);
+            margin-top: 6px;
+            opacity: 0.7;
+        }
+
+        /* "Ask about this" hover overlay */
+        .prod-tile-overlay {
+            position: absolute;
+            inset: 0;
+            border-radius: 12px;
+            background: rgba(45, 90, 61, 0.92);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.2s;
+            cursor: pointer;
+        }
+
+        .prod-tile:hover .prod-tile-overlay {
+            opacity: 1;
+        }
+
+        .prod-tile-overlay span {
+            color: #fff;
+            font-size: 0.78rem;
+            font-weight: 500;
+            text-align: center;
+            padding: 0 12px;
+        }
+
+        /* ── CHAT CALLOUT BANNER ── */
+        .chat-banner {
+            margin: clamp(40px, 6vw, 72px) clamp(20px, 6vw, 80px);
+            background: var(--leaf);
+            border-radius: 24px;
+            padding: clamp(36px, 5vw, 60px) clamp(28px, 5vw, 60px);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 28px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .chat-banner::before {
+            content: '💬';
+            position: absolute;
+            right: -20px;
+            bottom: -30px;
+            font-size: 160px;
+            opacity: 0.07;
+            pointer-events: none;
+            transform: rotate(-10deg);
+        }
+
+        .chat-banner-text h2 {
+            font-family: var(--serif);
+            font-size: clamp(1.6rem, 3vw, 2.4rem);
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+        }
+
+        .chat-banner-text p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+            margin-top: 10px;
+            line-height: 1.55;
+            max-width: 440px;
+        }
+
+        .chat-banner-btn {
+            background: var(--gold);
+            color: var(--ink);
+            border: none;
+            font-family: var(--sans);
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 16px 36px;
+            border-radius: 50px;
+            cursor: pointer;
+            flex-shrink: 0;
+            transition: all 0.2s;
+            box-shadow: 0 4px 20px rgba(200, 152, 42, 0.5);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .chat-banner-btn:hover {
+            background: #daa82e;
+            transform: translateY(-2px);
+        }
+
+        /* ── SALESFORCE CHAT PLACEHOLDER ── */
+        /* This block marks where the Salesforce Enhanced Chat embed drops in.
+       Remove this element and add your Salesforce snippet in its place. */
+        .sf-chat-placeholder {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            z-index: 500;
+        }
+
+        /* Salesforce will inject its own launcher button here.
+       The comment block below is for developer reference only. */
+
+        /* ── FOOTER ── */
+        footer {
+            border-top: 1px solid #d8cebc;
+            padding: clamp(28px, 4vw, 48px) clamp(20px, 6vw, 80px);
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            justify-content: space-between;
+        }
+
+        .footer-brand {
+            font-family: var(--serif);
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .footer-brand em {
+            font-style: italic;
+            color: var(--leaf);
+        }
+
+        .footer-details {
+            font-size: 0.82rem;
+            color: #8a7868;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .footer-details span {
+            opacity: 0.4;
+        }
+
+        .footer-badge {
+            font-family: var(--script);
+            font-size: 0.95rem;
+            color: var(--clay);
+            background: var(--clay-pale);
+            padding: 4px 14px;
+            border-radius: 20px;
+        }
+
+        /* ── ANIMATIONS ── */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 640px) {
+            .nav-cats {
+                display: none;
+            }
+
+            .how-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .product-mosaic {
+                grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+            }
+
+            .chat-banner-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ── NAVIGATION ── -->
+    <nav>
+        <div class="nav-logo">Rosa &amp; <span>Manny's</span></div>
+        <div class="nav-cats" id="navCats"></div>
+        <div class="nav-divider"></div>
+        <button class="nav-ask-btn" id="navAskBtn">✦ Ask to Order</button>
+    </nav>
+
+    <!-- ── HERO ── -->
+    <section class="hero">
+        <div class="hero-content">
+            <p class="hero-eyebrow">Est. in the heart of the barangay</p>
+
+            <h1 class="hero-title">
+                Your corner<br>
+                store,<br>
+                <strong>reimagined</strong><br>
+                <em>for you.</em>
+            </h1>
+
+            <p class="hero-desc">
+                Browse our full selection — then just <strong>chat</strong> to place your order.
+                No forms, no clicks. Our AI knows every item in the store.
+            </p>
+
+            <div class="hero-cta">
+                <button class="cta-primary" id="heroChatBtn">
+                    <span class="cta-icon">💬</span>
+                    Start Shopping via Chat
+                </button>
+                <span class="cta-hint">↓ or scroll to browse</span>
+            </div>
+
+            <div class="prompt-chips" id="promptChips">
+                <button class="prompt-chip" data-prompt="What do you have in stock?">What do you have in stock?</button>
+                <button class="prompt-chip" data-prompt="I need ingredients for adobo">I need ingredients for
+                    adobo</button>
+                <button class="prompt-chip" data-prompt="Add 2kg white rice to my cart">Add 2kg white rice</button>
+                <button class="prompt-chip" data-prompt="What's good for a quick breakfast?">Quick breakfast
+                    ideas?</button>
+                <button class="prompt-chip" data-prompt="Do you have chicken breast?">Do you have chicken?</button>
+            </div>
+        </div>
+
+        <div class="ticker-wrap">
+            <div class="ticker-track" id="tickerTrack"></div>
+        </div>
+    </section>
+
+    <!-- ── HOW IT WORKS ── -->
+    <section class="section">
+        <p class="section-label">How it works</p>
+        <h2 class="section-title">Shop with a conversation,<br>not a shopping cart.</h2>
+
+        <div class="how-grid">
+            <div class="how-card">
+                <span class="how-num">1</span>
+                <span class="how-icon">🔍</span>
+                <h3>Browse &amp; Discover</h3>
+                <p>Scroll through our catalog below or just ask the chat "what do you have for pasta night?" — it knows
+                    the whole store.</p>
+            </div>
+            <div class="how-card">
+                <span class="how-num">2</span>
+                <span class="how-icon">💬</span>
+                <h3>Order by Chat</h3>
+                <p>Tell our AI assistant what you need, how much, and any preferences. It'll confirm each item and build
+                    your order in real time.</p>
+            </div>
+            <div class="how-card">
+                <span class="how-num">3</span>
+                <span class="how-icon">✅</span>
+                <h3>Confirm &amp; Checkout</h3>
+                <p>Review your order summary in chat, then confirm with a single message. No forms, no accounts needed.
+                    Done.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── CATALOG PREVIEW ── -->
+    <!--<section class="catalog-section" id="catalog">
+        <div class="catalog-header">
+            <div>
+                <h2 class="catalog-title">Browse the Store</h2>
+                <p class="catalog-sub">Hover any item · tap to ask about it in chat</p>
+            </div>
+            <button class="catalog-ask-btn" id="catalogAskBtn">💬 Ask about anything →</button>
+        </div>
+
+        <div class="cat-pills" id="catPills"></div>
+        <div class="product-mosaic" id="productMosaic"></div>
+    </section>-->
+
+    <!-- ── CHAT CALLOUT ── -->
+    <div class="chat-banner">
+        <div class="chat-banner-text">
+            <h2>Ready to order?<br>Just say the word.</h2>
+            <p>Our AI assistant knows every product, price, and quantity. Ask it anything — from "what can I cook with
+                chicken breast?" to "add 3 eggs and a loaf of bread."</p>
+        </div>
+        <button class="chat-banner-btn" id="bannerChatBtn">
+            💬 Open Chat &amp; Order
+        </button>
+    </div>
+
+    <!-- ── FOOTER ── -->
+    <footer>
+        <div>
+            <div class="footer-brand">Rosa &amp; <em>Manny's</em> Corner Store</div>
+            <div class="footer-details">
+                <span>42 Barangay Street</span>
+                <span>·</span>
+                <span>☎ (032) 555-0187</span>
+                <span>·</span>
+                <span>Made with love for the community 🌿</span>
+            </div>
+        </div>
+        <div class="footer-badge">AI-powered ordering ✦</div>
+    </footer>
+
+    <script type='text/javascript'>
+        function initEmbeddedMessaging() {
+            try {
+                embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
+
+                window.addEventListener('onEmbeddedMessagingButtonCreated', () => {
+                    try {
+                        window.setTimeout(() => {
+                            embeddedservice_bootstrap.utilAPI.hideChatButton();
+                            console.log('Chat button hidden successfully via callback.');
+                        }, 100)
+                        
+                    } catch (e) {
+                        console.error('Hide Chat Button via callback failed', e);
+                    }
+                });
+
+                window.addEventListener('onEmbeddedMessagingFirstBotMessageSent', () => {
+                    try {
+                        if (prefillText_) {
+                            embeddedservice_bootstrap.utilAPI.sendTextMessage(prefillText_)
+                            .then(() => {console.log('prefil message sent')})
+                        }
+                        
+                    } catch (e) {
+                        console.error('Hide Chat Button via callback failed', e);
+                    }
+                });
+
+                embeddedservice_bootstrap.settings.hideChatButtonOnLoad = true;
+
+                /* copy MIAW code snippet here */
+                embeddedservice_bootstrap.init(
+                    '00DgL000007tYWV',
+                    'Shopping_Chat_Channel',
+                    'https://orgfarm-efe60e9644-dev-ed.develop.my.site.com/ESWShoppingChatChannel1779527033951',
+                    {
+                        scrt2URL: 'https://orgfarm-efe60e9644-dev-ed.develop.my.salesforce-scrt.com'
+                    }
+                );
+            } catch (err) {
+                console.error('Error loading Embedded Messaging: ', err);
+            }
+        };
+    </script>
+    <script type='text/javascript'
+        src='https://orgfarm-efe60e9644-dev-ed.develop.my.site.com/ESWShoppingChatChannel1779527033951/assets/js/bootstrap.min.js'
+        onload='initEmbeddedMessaging()'></script>
+
+    <script>
+        // ─── PRODUCT DATA (source of truth — passed to Salesforce context) ────────
+        const PRODUCTS = [
+            { name: "White Rice", desc: "Long grain white rice for everyday cooking", family: "Grains & Staples", code: "GS-001", uom: "kg", emoji: "🌾" },
+            { name: "Brown Rice", desc: "Whole grain brown rice high in fiber", family: "Grains & Staples", code: "GS-002", uom: "kg", emoji: "🌾" },
+            { name: "All-Purpose Flour", desc: "Versatile wheat flour for baking and cooking", family: "Grains & Staples", code: "GS-003", uom: "kg", emoji: "🌾" },
+            { name: "Bread Loaf", desc: "Soft sliced white sandwich bread", family: "Bakery", code: "BK-001", uom: "loaf", emoji: "🍞" },
+            { name: "Whole Wheat Bread", desc: "Nutritious whole wheat sliced bread", family: "Bakery", code: "BK-002", uom: "loaf", emoji: "🍞" },
+            { name: "Dinner Rolls", desc: "Soft fluffy dinner rolls pack of 6", family: "Bakery", code: "BK-003", uom: "pack", emoji: "🥖" },
+            { name: "Croissant", desc: "Buttery flaky pastry croissant", family: "Bakery", code: "BK-004", uom: "piece", emoji: "🥐" },
+            { name: "Whole Milk", desc: "Fresh full-fat cow's milk", family: "Dairy & Eggs", code: "DE-001", uom: "liter", emoji: "🥛" },
+            { name: "Skim Milk", desc: "Low-fat skimmed cow's milk", family: "Dairy & Eggs", code: "DE-002", uom: "liter", emoji: "🥛" },
+            { name: "Butter", desc: "Creamy unsalted butter block", family: "Dairy & Eggs", code: "DE-003", uom: "250g block", emoji: "🧈" },
+            { name: "Cheddar Cheese", desc: "Mild cheddar cheese block", family: "Dairy & Eggs", code: "DE-004", uom: "250g block", emoji: "🧀" },
+            { name: "Eggs", desc: "Fresh large chicken eggs", family: "Dairy & Eggs", code: "DE-005", uom: "dozen", emoji: "🥚" },
+            { name: "Greek Yogurt", desc: "Thick and creamy plain Greek yogurt", family: "Dairy & Eggs", code: "DE-006", uom: "500g tub", emoji: "🥛" },
+            { name: "Mozzarella Cheese", desc: "Fresh soft mozzarella cheese", family: "Dairy & Eggs", code: "DE-007", uom: "250g block", emoji: "🧀" },
+            { name: "Chicken Breast", desc: "Fresh boneless skinless chicken breast", family: "Meat & Seafood", code: "MS-001", uom: "kg", emoji: "🍗" },
+            { name: "Ground Beef", desc: "Fresh lean ground beef 80/20", family: "Meat & Seafood", code: "MS-002", uom: "kg", emoji: "🥩" },
+            { name: "Pork Chops", desc: "Fresh bone-in pork loin chops", family: "Meat & Seafood", code: "MS-003", uom: "kg", emoji: "🥩" },
+            { name: "Tilapia Fillet", desc: "Fresh tilapia fish fillet", family: "Meat & Seafood", code: "MS-004", uom: "kg", emoji: "🐟" },
+            { name: "Shrimp", desc: "Fresh medium-sized shrimp peeled and deveined", family: "Meat & Seafood", code: "MS-005", uom: "kg", emoji: "🦐" },
+            { name: "Canned Tuna", desc: "Tuna chunks in water 185g can", family: "Canned & Packaged", code: "CP-001", uom: "can", emoji: "🥫" },
+            { name: "Canned Sardines", desc: "Sardines in tomato sauce 155g can", family: "Canned & Packaged", code: "CP-002", uom: "can", emoji: "🥫" },
+            { name: "Canned Tomatoes", desc: "Whole peeled tomatoes in juice 400g", family: "Canned & Packaged", code: "CP-003", uom: "can", emoji: "🥫" },
+            { name: "Canned Corn", desc: "Sweet whole kernel corn 400g can", family: "Canned & Packaged", code: "CP-004", uom: "can", emoji: "🥫" },
+            { name: "Canned Beans", desc: "Red kidney beans in brine 400g", family: "Canned & Packaged", code: "CP-005", uom: "can", emoji: "🥫" },
+            { name: "Tomato Ketchup", desc: "Classic tomato ketchup 500ml bottle", family: "Condiments & Sauces", code: "CS-001", uom: "bottle", emoji: "🍅" },
+            { name: "Yellow Mustard", desc: "Classic yellow mustard squeeze bottle", family: "Condiments & Sauces", code: "CS-002", uom: "bottle", emoji: "🌭" },
+            { name: "Soy Sauce", desc: "All-purpose light soy sauce 300ml", family: "Condiments & Sauces", code: "CS-003", uom: "bottle", emoji: "🍶" },
+            { name: "Fish Sauce", desc: "Traditional fish sauce 300ml", family: "Condiments & Sauces", code: "CS-004", uom: "bottle", emoji: "🍶" },
+            { name: "Oyster Sauce", desc: "Rich oyster-flavored sauce 300ml", family: "Condiments & Sauces", code: "CS-005", uom: "bottle", emoji: "🍶" },
+            { name: "Mayonnaise", desc: "Classic creamy mayonnaise 400g jar", family: "Condiments & Sauces", code: "CS-006", uom: "jar", emoji: "🫙" },
+            { name: "Hot Sauce", desc: "Spicy chili hot sauce 150ml bottle", family: "Condiments & Sauces", code: "CS-007", uom: "bottle", emoji: "🌶️" },
+            { name: "Vinegar", desc: "White distilled vinegar 500ml", family: "Condiments & Sauces", code: "CS-008", uom: "bottle", emoji: "🍶" },
+            { name: "Olive Oil", desc: "Extra virgin olive oil 500ml", family: "Oils & Fats", code: "OF-001", uom: "bottle", emoji: "🫒" },
+            { name: "Vegetable Oil", desc: "All-purpose vegetable cooking oil 1L", family: "Oils & Fats", code: "OF-002", uom: "bottle", emoji: "🛢️" },
+            { name: "Coconut Oil", desc: "Pure cold-pressed coconut oil 500ml", family: "Oils & Fats", code: "OF-003", uom: "jar", emoji: "🥥" },
+            { name: "Salt", desc: "Iodized table salt 500g", family: "Spices & Seasonings", code: "SS-001", uom: "pack", emoji: "🧂" },
+            { name: "Black Pepper", desc: "Ground black pepper 100g", family: "Spices & Seasonings", code: "SS-002", uom: "pack", emoji: "🫙" },
+            { name: "Garlic Powder", desc: "Dried granulated garlic powder 80g", family: "Spices & Seasonings", code: "SS-003", uom: "pack", emoji: "🧄" },
+            { name: "Onion Powder", desc: "Dried granulated onion powder 80g", family: "Spices & Seasonings", code: "SS-004", uom: "pack", emoji: "🧅" },
+            { name: "Paprika", desc: "Sweet paprika powder 80g", family: "Spices & Seasonings", code: "SS-005", uom: "pack", emoji: "🫙" },
+            { name: "Cumin", desc: "Ground cumin spice 80g", family: "Spices & Seasonings", code: "SS-006", uom: "pack", emoji: "🫙" },
+            { name: "Chili Flakes", desc: "Dried red chili flakes 60g", family: "Spices & Seasonings", code: "SS-007", uom: "pack", emoji: "🌶️" },
+            { name: "Cinnamon", desc: "Ground cinnamon spice 80g", family: "Spices & Seasonings", code: "SS-008", uom: "pack", emoji: "🫙" },
+            { name: "Bay Leaves", desc: "Dried whole bay leaves 20g", family: "Spices & Seasonings", code: "SS-009", uom: "pack", emoji: "🌿" },
+            { name: "White Sugar", desc: "Refined granulated white sugar 1kg", family: "Baking Supplies", code: "BS-001", uom: "kg", emoji: "🍬" },
+            { name: "Brown Sugar", desc: "Soft light brown sugar 500g", family: "Baking Supplies", code: "BS-002", uom: "pack", emoji: "🍬" },
+            { name: "Baking Powder", desc: "Leavening agent for baking 100g", family: "Baking Supplies", code: "BS-003", uom: "pack", emoji: "🫙" },
+            { name: "Baking Soda", desc: "Sodium bicarbonate 200g", family: "Baking Supplies", code: "BS-004", uom: "pack", emoji: "🫙" },
+            { name: "Vanilla Extract", desc: "Pure vanilla extract 50ml bottle", family: "Baking Supplies", code: "BS-005", uom: "bottle", emoji: "🍶" },
+            { name: "Cocoa Powder", desc: "Unsweetened cocoa powder 200g", family: "Baking Supplies", code: "BS-006", uom: "pack", emoji: "🍫" },
+            { name: "Cornstarch", desc: "Fine cornstarch thickening agent 400g", family: "Baking Supplies", code: "BS-007", uom: "pack", emoji: "🫙" },
+            { name: "Honey", desc: "Natural raw honey 500g jar", family: "Baking Supplies", code: "BS-008", uom: "jar", emoji: "🍯" },
+            { name: "Apple", desc: "Fresh red apples", family: "Fresh Produce", code: "FP-001", uom: "kg", emoji: "🍎" },
+            { name: "Banana", desc: "Fresh ripe bananas", family: "Fresh Produce", code: "FP-002", uom: "kg", emoji: "🍌" },
+            { name: "Orange", desc: "Fresh navel oranges", family: "Fresh Produce", code: "FP-003", uom: "kg", emoji: "🍊" },
+            { name: "Mango", desc: "Fresh ripe mangoes", family: "Fresh Produce", code: "FP-004", uom: "kg", emoji: "🥭" },
+            { name: "Watermelon", desc: "Fresh whole watermelon", family: "Fresh Produce", code: "FP-005", uom: "piece", emoji: "🍉" },
+            { name: "Tomato", desc: "Fresh ripe red tomatoes", family: "Fresh Produce", code: "FP-006", uom: "kg", emoji: "🍅" },
+            { name: "Onion", desc: "Yellow cooking onions", family: "Fresh Produce", code: "FP-007", uom: "kg", emoji: "🧅" },
+            { name: "Garlic", desc: "Fresh whole garlic bulb", family: "Fresh Produce", code: "FP-008", uom: "piece", emoji: "🧄" },
+            { name: "Potato", desc: "Fresh Russet potatoes", family: "Fresh Produce", code: "FP-009", uom: "kg", emoji: "🥔" },
+            { name: "Carrot", desc: "Fresh whole carrots", family: "Fresh Produce", code: "FP-010", uom: "kg", emoji: "🥕" },
+            { name: "Cabbage", desc: "Fresh whole green cabbage head", family: "Fresh Produce", code: "FP-011", uom: "piece", emoji: "🥬" },
+            { name: "Lettuce", desc: "Fresh iceberg lettuce head", family: "Fresh Produce", code: "FP-012", uom: "piece", emoji: "🥬" },
+            { name: "Bell Pepper", desc: "Fresh red and green bell peppers", family: "Fresh Produce", code: "FP-013", uom: "piece", emoji: "🫑" },
+            { name: "Cucumber", desc: "Fresh whole cucumber", family: "Fresh Produce", code: "FP-014", uom: "piece", emoji: "🥒" },
+            { name: "Green Onion", desc: "Fresh spring onion bunch", family: "Fresh Produce", code: "FP-015", uom: "bunch", emoji: "🌿" },
+            { name: "Instant Noodles", desc: "Chicken-flavored instant ramen noodles", family: "Noodles & Pasta", code: "NP-001", uom: "pack", emoji: "🍜" },
+            { name: "Spaghetti", desc: "Dry spaghetti pasta 500g", family: "Noodles & Pasta", code: "NP-002", uom: "pack", emoji: "🍝" },
+            { name: "Egg Noodles", desc: "Dried egg noodles 400g", family: "Noodles & Pasta", code: "NP-003", uom: "pack", emoji: "🍜" },
+            { name: "Rice Noodles", desc: "Dried flat rice noodles 400g", family: "Noodles & Pasta", code: "NP-004", uom: "pack", emoji: "🍜" },
+            { name: "Macaroni", desc: "Elbow macaroni pasta 500g", family: "Noodles & Pasta", code: "NP-005", uom: "pack", emoji: "🍝" },
+            { name: "Drip Coffee", desc: "Medium roast ground drip coffee 250g", family: "Beverages", code: "BV-001", uom: "pack", emoji: "☕" },
+            { name: "Black Tea Bags", desc: "Classic black tea bags pack of 25", family: "Beverages", code: "BV-002", uom: "pack", emoji: "🍵" },
+            { name: "Green Tea Bags", desc: "Light green tea bags pack of 25", family: "Beverages", code: "BV-003", uom: "pack", emoji: "🍵" },
+            { name: "Orange Juice", desc: "100% fresh squeezed orange juice 1L", family: "Beverages", code: "BV-004", uom: "liter", emoji: "🍊" },
+            { name: "Apple Juice", desc: "Clear apple juice 1L carton", family: "Beverages", code: "BV-005", uom: "liter", emoji: "🍏" },
+            { name: "Mineral Water", desc: "Still mineral drinking water 1.5L", family: "Beverages", code: "BV-006", uom: "bottle", emoji: "💧" },
+            { name: "Cola Soda", desc: "Classic cola carbonated drink 1.5L", family: "Beverages", code: "BV-007", uom: "bottle", emoji: "🥤" },
+            { name: "Lemon Soda", desc: "Lemon-lime carbonated soft drink 1.5L", family: "Beverages", code: "BV-008", uom: "bottle", emoji: "🥤" },
+            { name: "Potato Chips", desc: "Salted crispy potato chips 150g", family: "Snacks & Sweets", code: "SW-001", uom: "pack", emoji: "🥔" },
+            { name: "Peanuts", desc: "Roasted salted peanuts 200g", family: "Snacks & Sweets", code: "SW-002", uom: "pack", emoji: "🥜" },
+            { name: "Crackers", desc: "Butter crackers snack pack 200g", family: "Snacks & Sweets", code: "SW-003", uom: "pack", emoji: "🍘" },
+            { name: "Chocolate Bar", desc: "Milk chocolate candy bar 100g", family: "Snacks & Sweets", code: "SW-004", uom: "piece", emoji: "🍫" },
+            { name: "Hard Candy", desc: "Assorted fruit hard candies 200g", family: "Snacks & Sweets", code: "SW-005", uom: "pack", emoji: "🍬" },
+            { name: "Chewing Gum", desc: "Spearmint chewing gum 10 sticks", family: "Snacks & Sweets", code: "SW-006", uom: "pack", emoji: "🍬" },
+            { name: "Dish Soap", desc: "Liquid dish washing soap 500ml", family: "Household & Cleaning", code: "HC-001", uom: "bottle", emoji: "🧴" },
+            { name: "Laundry Detergent", desc: "Powder laundry detergent 1kg", family: "Household & Cleaning", code: "HC-002", uom: "pack", emoji: "🫧" },
+            { name: "Fabric Softener", desc: "Liquid fabric conditioner 1L", family: "Household & Cleaning", code: "HC-003", uom: "bottle", emoji: "🧴" },
+            { name: "Toilet Paper", desc: "2-ply toilet tissue rolls pack of 4", family: "Household & Cleaning", code: "HC-004", uom: "pack", emoji: "🧻" },
+            { name: "Paper Towels", desc: "Absorbent paper towel roll", family: "Household & Cleaning", code: "HC-005", uom: "roll", emoji: "🧻" },
+            { name: "Trash Bags", desc: "Heavy duty garbage bags 10 pcs", family: "Household & Cleaning", code: "HC-006", uom: "pack", emoji: "🗑️" },
+            { name: "All-Purpose Cleaner", desc: "Multi-surface spray cleaner 500ml", family: "Household & Cleaning", code: "HC-007", uom: "bottle", emoji: "🧹" },
+            { name: "Bleach", desc: "Household liquid bleach 1L", family: "Household & Cleaning", code: "HC-008", uom: "bottle", emoji: "🧴" },
+            { name: "Toothpaste", desc: "Fluoride toothpaste 150g", family: "Personal Care", code: "PC-001", uom: "tube", emoji: "🪥" },
+            { name: "Toothbrush", desc: "Soft bristle toothbrush", family: "Personal Care", code: "PC-002", uom: "piece", emoji: "🪥" },
+            { name: "Shampoo", desc: "Daily moisturizing shampoo 400ml", family: "Personal Care", code: "PC-003", uom: "bottle", emoji: "🧴" },
+            { name: "Conditioner", desc: "Hair conditioner for smooth hair 400ml", family: "Personal Care", code: "PC-004", uom: "bottle", emoji: "🧴" },
+            { name: "Bar Soap", desc: "Moisturizing bath bar soap 125g", family: "Personal Care", code: "PC-005", uom: "piece", emoji: "🧼" },
+            { name: "Hand Sanitizer", desc: "Alcohol-based hand sanitizer 100ml", family: "Personal Care", code: "PC-006", uom: "bottle", emoji: "🧴" },
+            { name: "Razor", desc: "Disposable razors pack of 5", family: "Personal Care", code: "PC-007", uom: "pack", emoji: "🪒" },
+            { name: "Sanitary Pads", desc: "Ultra-thin sanitary napkins pack of 10", family: "Personal Care", code: "PC-008", uom: "pack", emoji: "📦" },
+            { name: "Bandages", desc: "Adhesive first aid bandage strips 20 pcs", family: "Health & Medicine", code: "HM-001", uom: "pack", emoji: "🩹" },
+            { name: "Paracetamol", desc: "Paracetamol 500mg pain reliever 10 tabs", family: "Health & Medicine", code: "HM-002", uom: "pack", emoji: "💊" },
+            { name: "Antacid Tablets", desc: "Chewable antacid tablets 10 pcs", family: "Health & Medicine", code: "HM-003", uom: "pack", emoji: "💊" },
+            { name: "Vitamin C", desc: "Vitamin C 500mg supplement 30 tablets", family: "Health & Medicine", code: "HM-004", uom: "pack", emoji: "💊" },
+            { name: "Rubbing Alcohol", desc: "Isopropyl alcohol 70% 500ml", family: "Health & Medicine", code: "HM-005", uom: "bottle", emoji: "🧴" },
+            { name: "Cotton Balls", desc: "Soft cotton balls 100 pcs", family: "Health & Medicine", code: "HM-006", uom: "pack", emoji: "☁️" },
+            { name: "AA Batteries", desc: "AA alkaline batteries pack of 4", family: "General Merchandise", code: "GM-001", uom: "pack", emoji: "🔋" },
+            { name: "AAA Batteries", desc: "AAA alkaline batteries pack of 4", family: "General Merchandise", code: "GM-002", uom: "pack", emoji: "🔋" },
+            { name: "Lighter", desc: "Disposable butane lighter", family: "General Merchandise", code: "GM-003", uom: "piece", emoji: "🔥" },
+            { name: "Matches", desc: "Safety matchbox 40 sticks", family: "General Merchandise", code: "GM-004", uom: "box", emoji: "🔥" },
+            { name: "Candle", desc: "White wax pillar candle", family: "General Merchandise", code: "GM-005", uom: "piece", emoji: "🕯️" },
+            { name: "Rubber Bands", desc: "Assorted rubber bands 100 pcs", family: "General Merchandise", code: "GM-006", uom: "pack", emoji: "📎" },
+            { name: "Tape", desc: "Clear adhesive tape roll 25m", family: "General Merchandise", code: "GM-007", uom: "roll", emoji: "📎" },
+            { name: "Ballpen", desc: "Black ink ballpoint pen", family: "General Merchandise", code: "GM-008", uom: "piece", emoji: "🖊️" },
+            { name: "Notebook", desc: "Ruled spiral notebook 80 pages", family: "General Merchandise", code: "GM-009", uom: "piece", emoji: "📓" },
+            { name: "Plastic Bag", desc: "Reusable shopping plastic bag large", family: "General Merchandise", code: "GM-010", uom: "piece", emoji: "🛍️" },
+        ];
+
+        // Expose globally for Salesforce bot context injection
+        window.STORE_PRODUCTS = PRODUCTS;
+
+        // ─── DERIVED DATA ─────────────────────────────────────────────────────────
+        const FAMILIES = [...new Set(PRODUCTS.map(p => p.family))];
+
+        const FAMILY_EMOJI = {
+            "Grains & Staples": "🌾", "Bakery": "🍞", "Dairy & Eggs": "🥛",
+            "Meat & Seafood": "🥩", "Canned & Packaged": "🥫", "Condiments & Sauces": "🍶",
+            "Oils & Fats": "🫒", "Spices & Seasonings": "🧂", "Baking Supplies": "🍯",
+            "Fresh Produce": "🥦", "Noodles & Pasta": "🍜", "Beverages": "☕",
+            "Snacks & Sweets": "🍬", "Household & Cleaning": "🧹", "Personal Care": "🧴",
+            "Health & Medicine": "💊", "General Merchandise": "🔋"
+        };
+
+        let activeFamily = null; // null = ALL
+
+        // ─── TICKER ───────────────────────────────────────────────────────────────
+        function buildTicker() {
+            const track = document.getElementById('tickerTrack');
+            const items = PRODUCTS.filter((_, i) => i % 7 === 0).map(p => p.name);
+            const doubled = [...items, ...items]; // seamless loop
+            doubled.forEach(name => {
+                const el = document.createElement('span');
+                el.className = 'ticker-item';
+                el.innerHTML = `<span class="ticker-dot"></span>${name}`;
+                track.appendChild(el);
+            });
+        }
+
+        // ─── NAV CATS ─────────────────────────────────────────────────────────────
+        function buildNavCats() {
+            const strip = document.getElementById('navCats');
+            FAMILIES.forEach(f => {
+                const btn = document.createElement('button');
+                btn.className = 'nav-cat';
+                btn.textContent = f;
+                btn.onclick = () => {
+                    activeFamily = f;
+                    document.getElementById('catalog').scrollIntoView({ behavior: 'smooth' });
+                    renderCatalog();
+                    updatePills();
+                };
+                strip.appendChild(btn);
+            });
+        }
+
+        // ─── CATEGORY PILLS ───────────────────────────────────────────────────────
+        function buildPills() {
+            const wrap = document.getElementById('catPills');
+            // ALL pill
+            const all = document.createElement('button');
+            all.className = 'cat-pill active'; all.dataset.fam = '';
+            all.innerHTML = `<span class="cat-pill-emoji">🛒</span> All Items`;
+            all.onclick = () => { activeFamily = null; renderCatalog(); updatePills(); };
+            wrap.appendChild(all);
+
+            FAMILIES.forEach(f => {
+                const btn = document.createElement('button');
+                btn.className = 'cat-pill'; btn.dataset.fam = f;
+                btn.innerHTML = `<span class="cat-pill-emoji">${FAMILY_EMOJI[f] || '📦'}</span> ${f}`;
+                btn.onclick = () => { activeFamily = f; renderCatalog(); updatePills(); };
+                wrap.appendChild(btn);
+            });
+        }
+
+        function updatePills() {
+            document.querySelectorAll('.cat-pill').forEach(p => {
+                p.classList.toggle('active', p.dataset.fam === (activeFamily || ''));
+            });
+        }
+
+        // ─── CATALOG RENDER ───────────────────────────────────────────────────────
+        function renderCatalog() {
+            const mosaic = document.getElementById('productMosaic');
+            mosaic.innerHTML = '';
+            const items = activeFamily
+                ? PRODUCTS.filter(p => p.family === activeFamily)
+                : PRODUCTS;
+
+            items.forEach(p => {
+                const tile = document.createElement('div');
+                tile.className = 'prod-tile';
+                tile.innerHTML = `
+        <span class="prod-emoji">${p.emoji}</span>
+        <div class="prod-name">${p.name}</div>
+        <div class="prod-uom">per ${p.uom}</div>
+        <div class="prod-code">${p.code}</div>
+        <div class="prod-tile-overlay" onclick="triggerChat('Ask about ${p.name} (${p.code})')">
+          <span>💬 Ask about<br>${p.name}</span>
+        </div>
+      `;
+                mosaic.appendChild(tile);
+            });
+        }
+
+        var prefillText_;
+
+        function triggerChat(prefillText) {
+            console.info('[Rosa Store] triggerChat called with:', prefillText);
+            prefillText_ = prefillText;
+            embeddedservice_bootstrap.utilAPI.launchChat()
+        }
+
+        // ─── WIRE UP BUTTONS ──────────────────────────────────────────────────────
+        document.getElementById('heroChatBtn').onclick = () => triggerChat('');
+        document.getElementById('navAskBtn').onclick = () => triggerChat('');
+        document.getElementById('catalogAskBtn').onclick = () => triggerChat('');
+        document.getElementById('bannerChatBtn').onclick = () => triggerChat('');
+
+        document.querySelectorAll('.prompt-chip').forEach(chip => {
+            chip.addEventListener('click', () => triggerChat(chip.dataset.prompt));
+        });
+
+        // ─── INIT ─────────────────────────────────────────────────────────────────
+        buildTicker();
+        buildNavCats();
+        buildPills();
+        // renderCatalog();
+    </script>
+</body>
+
+</html>

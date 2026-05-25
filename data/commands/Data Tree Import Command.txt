@@ -1,0 +1,1 @@
+sf data import tree --plan "data\plan.json"

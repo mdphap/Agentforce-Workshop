@@ -1,0 +1,1 @@
+sf data export tree --query "data\queries\product-query.txt" --query "data\queries\price-book-query.txt" --query "data\queries\price-book-entry-query.txt" --plan --output-dir data

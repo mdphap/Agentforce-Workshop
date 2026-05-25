@@ -1,0 +1,13 @@
+{
+    "records": [
+        {
+            "attributes": {
+                "type": "Pricebook2",
+                "referenceId": "Pricebook2Ref2"
+            },
+            "Name": "Rosa & Manny Corner Store",
+            "Description": "Rosa & Manny's Corner Store Price Book",
+            "IsActive": true
+        }
+    ]
+}

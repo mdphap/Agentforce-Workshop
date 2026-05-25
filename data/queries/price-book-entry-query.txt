@@ -1,0 +1,1 @@
+SELECT Id, Product2Id, Pricebook2Id, UnitPrice FROM PriceBookEntry WHERE Pricebook2Id IN (SELECT Id FROM Pricebook2 WHERE (Name = 'Rosa & Manny Corner Store' OR IsStandard = TRUE)) AND Product2Id IN (SELECT Id FROM Product2 WHERE Family != NULL)
