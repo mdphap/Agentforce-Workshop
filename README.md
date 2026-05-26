@@ -66,15 +66,15 @@ Create an Agent User with following settings:
 
 ### Exercise 4: Create subagents for cart operation (Add / Remove / Update)
 
-## Excercise 5: Create cart checkout subagent
+### Excercise 5: Create cart checkout subagent
 
-## Excercise 6: Test Agent with Agentforce Test Center and AgentforceDX
+### Excercise 6: Test Agent with Agentforce Test Center and AgentforceDX
 
-## Excercise 7: Publish Agent and deploy to Enhanced Chat
+### Excercise 7: Publish Agent and deploy to Enhanced Chat
 
-## Excercise 8: Monitor Agent performance and feedback
+### Excercise 8: Monitor Agent performance and feedback
 
-## Agentforce Help Documents
+### Agentforce Help Documents
 
 - [_Agentforce DX Developer Guide_](https://developer.salesforce.com/docs/einstein/genai/guide/agent-dx.html)
 - [_Agent Script_](https://developer.salesforce.com/docs/ai/agentforce/guide/agent-script.html)
