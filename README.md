@@ -74,7 +74,7 @@ Create an Agent User with following settings:
 
 ### Excercise 8: Monitor Agent performance and feedback
 
-### Agentforce Help Documents
+## Agentforce Help Documents
 
 - [_Agentforce DX Developer Guide_](https://developer.salesforce.com/docs/einstein/genai/guide/agent-dx.html)
 - [_Agent Script_](https://developer.salesforce.com/docs/ai/agentforce/guide/agent-script.html)
