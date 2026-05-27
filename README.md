@@ -42,8 +42,12 @@ sf project deploy start --manifest "manifest\package.xml"
 - **Agent**: the term `Agent` alone refers to Agentforce Agent, the one we are building in this workshop. When we need to refer to actual human user we will use term `Human Agent`.
 - **Agent User**: the integration user for `Agent` to interact with platform tools and data.
 - **Agentforce Builder**: next tier of Salesforce AI agent builder. `Agentforce Builder` supports `Agent Script` and provide a cleaner UI.
-- **Subagent**:
-- **Enhanced Chat**:
+- **Agent Script**: is a declarative YAML-style procedure orchestration language for `Agent`. It is used in AI Authoring Bundle to build a blueprint for an `Agent` and will be published / compiled to `Agent Metadata`.
+- **Agent Metadata**: collection of metadata that define an `Agent`.
+- **Subagent**: Jobs-To-Be-Done-specific agent that can be invoked by `Agent` to delegate the responding to an utterance.
+- **Agent Action**: executable functions assgined to `Agent` and can be used as `Tools`.
+- **Tools**: executable functions that the LLM can choose to call, based on the tool's description and the current context
+- **Enhanced Chat**: modernize version of Salesforce Chat. It's the backbone for Service Cloud text messaging channel.
 
 ## Workshop Exercises
 ### Excercise 1: Create Agent User
@@ -60,19 +64,87 @@ Create an Agent User with following settings:
 | Permission Set | Shop Assistant Permission Set | Provide access to our custom agent assets and required object (Order, Product, PriceBook, etc) |
 | Permission Set Group | AgentforceServiceAgentUserPsg | Standard Permission Set Group |
 
-### Exercise 2: Create AI Authoring Bundle
+### Exercise 3: Create AI Authoring Bundle
+The 1st step in authoring an agent is to generate its authoring bundle. An authoring bundle defines the blueprint for an agent and is written in `Agent Script` language.
 
-### Exercise 3: Create 1st subagent Querry Product
+Create our AI Authoring Bundle using SF CLI command:
 
-### Exercise 4: Create subagents for cart operation (Add / Remove / Update)
+```bash
+sf agent generate authoring-bundle --no-spec --name "My Agent Bundle" --api-name My_Agent_Bundle
+```
 
-### Excercise 5: Create cart checkout subagent
+Provide your own bundle name and API name. We recommend to keep the API name to be the default one as the name.
 
-### Excercise 6: Test Agent with Agentforce Test Center and AgentforceDX
+### Exercise 4: Configure System & Config block
+The system block contains general instructions for the `Agent`. The config block contains configuration parameters that define the `Agent`.
 
-### Excercise 7: Publish Agent and deploy to Enhanced Chat
+Configure System block:
+- System instructions: set the general tone and style of your `Agent`. System instruction is always honored by the `Agent` through out the conversation.
+- Welcome & error message: static message to customer at the beginning of conversation. Variable referencing can be used to personalize the message.
 
-### Excercise 8: Monitor Agent performance and feedback
+Example
+```yaml
+system:
+    instructions:|
+        You are an AI agent. Have a friendly conversation with the user.
+
+    messages:
+        welcome:|
+            Welcome {!@variables.userPreferredName}! I'm your personal shopping assistant.
+
+            I can help you:
+            - Find products and check availability
+            - Track your orders
+            - Process returns and refunds
+            - Answer questions about our policies
+
+            How can I assist you today?
+        error: "Whoops!"
+```
+
+Configure Config block:
+- developer_name
+- default_agent_user: set to be `Agent User` username from Exercise 1.
+- agent_label
+- description: Description of the agent's goals and purpose. For example: ```You are Rosa & Manny Store Assistant, a trusted retail service agent dedicated to delivering personalized shopping experiences and culinary guidance.```
+
+### Exercise 4: Create 1st subagent Querry Product
+- **Jobs To Be Done**: allow customer to query information about a product or product range. The product range is not necessarily product family but can be a customer-define-range. For example: `any ideal for a quick breakfast that going well with coffee?`
+- **Functional Requirement**:
+    - Allow customer to query information about a specific product by name or by product code.
+    - Don't outright refuse the query if product name is incorrect or having typo. `Agent` would be able to find a reasonable product with similar name and suggest user if it's the correct one. For example: `any fresh tomatoos mate?` should be replied with infomation about `tomotoes` or ask customer if `tomatoes` is the one they are mentioning.
+    - Allow customer to query information about a customer-define product range. For example: `any veg for a fine dinner sir?` or `any meat with price lower than 15000 per unit?`.
+    - ONLY answer with actual product data. `Agent` SHOULD NEVER invent new product or new product information.
+    - No need to suggest customer to put asked product into cart.
+- **Excercise tips**:
+    - Use an `Agent Action` to fetch product data from back-end.
+    - This fetching should happen only once and keep in memory for reference.
+    - Instruct `Agent` to reference product data in LLM instruction.
+
+### Exercise 5: Create subagents for cart operation (Add / Remove / Update)
+- **Jobs To Be Done**: allow customer to add product / remove product / update product quantity in their shopping cart.
+- **Functional Requirement**:
+    - Allow customer to request operation by product name or product code.
+    - Don't outright refuse the query if product name is incorrect or having typo. `Agent` would be able to find a reasonable product with similar name and suggest user if it's the correct one.
+    - Only allow remove or update operation if customer having a cart with product. If shopping cart is empty, politely let customer know they need to add product to cart first.
+    - Our product is divisible, `Agent` should allow customer to buy a fraction of a product. For example: `get me a quarter of kg of Tomato` should be accepted and add 0.25 kg Tomato to shopping cart.
+    - `Agent` should be able to automatically slot filling product and quantity from customer chat without providing any static form.
+    - System need to check if the requested product is available before proceeding.
+    - Once proceeded, summary new cart to customer for their information.
+- **Excercise tips**:
+    - Use `Agent Action` to do product availability check and add to cart.
+    - Cart after processing should be keep in memory for agent reference.
+    - Use `available when` to restrict subagent access.
+    - Use `available when` to avoid multiple `Tools` call.
+    - Use `slot filling` to infer product code and quantity from customer referece.sa
+
+### Excercise 6: Create cart checkout subagent
+
+### Excercise 7: Test Agent with Agentforce Test Center and AgentforceDX
+
+### Excercise 8: Publish Agent and deploy to Enhanced Chat
+
+### Excercise 9: Monitor Agent performance and feedback
 
 ## Agentforce Help Documents
 
