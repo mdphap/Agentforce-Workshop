@@ -64,7 +64,7 @@ Create an Agent User with following settings:
 | Permission Set | Shop Assistant Permission Set | Provide access to our custom agent assets and required object (Order, Product, PriceBook, etc) |
 | Permission Set Group | AgentforceServiceAgentUserPsg | Standard Permission Set Group |
 
-### Exercise 3: Create AI Authoring Bundle
+### Exercise 2: Create AI Authoring Bundle
 The 1st step in authoring an agent is to generate its authoring bundle. An authoring bundle defines the blueprint for an agent and is written in `Agent Script` language.
 
 Create our AI Authoring Bundle using SF CLI command:
@@ -75,7 +75,7 @@ sf agent generate authoring-bundle --no-spec --name "My Agent Bundle" --api-name
 
 Provide your own bundle name and API name. We recommend to keep the API name to be the default one as the name.
 
-### Exercise 4: Configure System & Config block
+### Exercise 3: Configure System & Config block
 The system block contains general instructions for the `Agent`. The config block contains configuration parameters that define the `Agent`.
 
 Configure System block:
@@ -128,7 +128,7 @@ Configure Config block:
     - Don't outright refuse the query if product name is incorrect or having typo. `Agent` would be able to find a reasonable product with similar name and suggest user if it's the correct one.
     - Only allow remove or update operation if customer having a cart with product. If shopping cart is empty, politely let customer know they need to add product to cart first.
     - Our product is divisible, `Agent` should allow customer to buy a fraction of a product. For example: `get me a quarter of kg of Tomato` should be accepted and add 0.25 kg Tomato to shopping cart.
-    - `Agent` should be able to automatically slot filling product and quantity from customer chat without providing any static form.
+    - `Agent` should be able to infer product and quantity from customer chat without providing any static form.
     - System need to check if the requested product is available before proceeding.
     - Once proceeded, summary new cart to customer for their information.
 - **Excercise tips**:
@@ -136,15 +136,38 @@ Configure Config block:
     - Cart after processing should be keep in memory for agent reference.
     - Use `available when` to restrict subagent access.
     - Use `available when` to avoid multiple `Tools` call.
-    - Use `slot filling` to infer product code and quantity from customer referece.sa
+    - Use `slot filling` to infer product code and quantity from customer utterance.
 
 ### Excercise 6: Create cart checkout subagent
+- **Jobs To Be Done**: allow customer to checkout their shopping cart with checkout information.
+- **Functional Requirement**:
+    - Customer need to provide name, email & delivery address for checkout.
+    - Only do checkout if customer have cart with product. If shopping cart is empty, politely let customer know they need to add product to cart first.
+    - `Agent` should collect checkout data via chat with customer. Don't offer static form to collect data.
+    - An Order must be created as result of checkout.
+    - Cart Items must be captured as Order Item and link to above Order. Order Item must link to correct product and quantity.
+    - System lookup for provided email in database. If a person account is found, link Order to this person account. Else create a new person account and link to Order.
 
-### Excercise 7: Test Agent with Agentforce Test Center and AgentforceDX
+### Excercise 7: Create general culinary knowledge subagent
+- **Jobs To Be Done**: having small talks with customer about general culinary knowledge and suggest our products when available.
+- **Functional Requirement**:
+    - Having small talks with customer about general culinary knowledge.
+    - Depend on the context, the reply should be relevant to customer selected product or our offered product. For example: `how can I best prepare this salmon for dinner?` should provide the culinary knowledge answer and suggest we have `salt` or `pepper` that might fit to `salmon preparation for dinner`.
+- **Excercise tips**:
+    - Refer shop products and shopping cart in the reasoning instruction.
 
-### Excercise 8: Publish Agent and deploy to Enhanced Chat
+### Excercise 8: Test Agent with Agentforce Test Center and AgentforceDX
+**Test with Agentforce Test Center**
+**Test with AgentforceDX**
 
-### Excercise 9: Monitor Agent performance and feedback
+### Excercise 9: Publish Agent and deploy to Enhanced Chat
+Publishing an authoring bundle refers to using the Agent Script file to generate Bot and GenAi* metadata. The publishing can be done from `Agentforce Builder` or SF CLI.
+
+```bash
+sf agent publish authoring-bundle
+```
+
+### Excercise 10: Monitor Agent performance and feedback
 
 ## Agentforce Help Documents
 
