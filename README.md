@@ -25,6 +25,7 @@ What you will learn in this workshop:
 - **VS Code** with the **Salesforce Extensions** pack and the **Agentforce DX** extension. 
 
 After you get a DE org and set up your tools, authorize the org so you can start working with it.
+- **NodeJS**
 
 ## Workshop pre-works
 Complete these works prior to workshop day so we can have a clean and smooth start:
@@ -38,14 +39,19 @@ Complete these works prior to workshop day so we can have a clean and smooth sta
 ```bash
 sf project deploy start --manifest "manifest\package.xml"
 ```
+- **Import Products**: import shop products using below `npm` command.
+```bash
+npm run import-products
+```
 ## Terminologies
 - **Agent**: the term `Agent` alone refers to Agentforce Agent, the one we are building in this workshop. When we need to refer to actual human user we will use term `Human Agent`.
 - **Agent User**: the integration user for `Agent` to interact with platform tools and data.
-- **Agentforce Builder**: next tier of Salesforce AI agent builder. `Agentforce Builder` supports `Agent Script` and provide a cleaner UI.
+- **Agentforce Studio**: next tier of Salesforce AI agent builder. `Agentforce Studio` supports `Agent Script` and provide a cleaner UI.
 - **Agent Script**: is a declarative YAML-style procedure orchestration language for `Agent`. It is used in AI Authoring Bundle to build a blueprint for an `Agent` and will be published / compiled to `Agent Metadata`.
 - **Agent Metadata**: collection of metadata that define an `Agent`.
 - **Subagent**: Jobs-To-Be-Done-specific agent that can be invoked by `Agent` to delegate the responding to an utterance.
 - **Agent Action**: executable functions assgined to `Agent` and can be used as `Tools`.
+- **Agent Variable**: let agents deterministically remember information and maintain context throughout the session.
 - **Tools**: executable functions that the LLM can choose to call, based on the tool's description and the current context
 - **Enhanced Chat**: modernize version of Salesforce Chat. It's the backbone for Service Cloud text messaging channel.
 
@@ -58,7 +64,7 @@ Create an Agent User with following settings:
 | Setting Type | Setting Name | Note |
 | -------- | -------- | -------- |
 | License | Einstein Agent | |
-| Profile | Einstein Agent User | Althought Agentforce documentation recommended to clone Einstein Agent User profile into a custom one before assigning to Agent User, from our experiment Agent User with custom profile won't be selectable in Agentforce Builder |
+| Profile | Einstein Agent User | Althought Agentforce documentation recommended to clone Einstein Agent User profile into a custom one before assigning to Agent User, from our experiment Agent User with custom profile won't be selectable in Agentforce Studio |
 | Permission Set | Agentforce Service Agent Object Access | Standard Permission Set |
 | Permission Set | Agentforce Service Agent Secure Base | Standard Permission Set |
 | Permission Set | Shop Assistant Permission Set | Provide access to our custom agent assets and required object (Order, Product, PriceBook, etc) |
@@ -108,21 +114,37 @@ Configure Config block:
 - agent_label
 - description: Description of the agent's goals and purpose. For example: ```You are Rosa & Manny Store Assistant, a trusted retail service agent dedicated to delivering personalized shopping experiences and culinary guidance.```
 
-### Exercise 4: Create 1st subagent Querry Product
+[Agent Script Language Characteristics](https://developer.salesforce.com/docs/ai/agentforce/guide/ascript-lang.html)
+
+[Agent Script Blocks](https://developer.salesforce.com/docs/ai/agentforce/guide/ascript-blocks.html)
+
+### Exercise 4: Create subagent Querry Product
 - **Jobs To Be Done**: allow customer to query information about a product or product range. The product range is not necessarily product family but can be a customer-define-range. For example: `any ideal for a quick breakfast that going well with coffee?`
+
 - **Functional Requirement**:
     - Allow customer to query information about a specific product by name or by product code.
     - Don't outright refuse the query if product name is incorrect or having typo. `Agent` would be able to find a reasonable product with similar name and suggest user if it's the correct one. For example: `any fresh tomatoos mate?` should be replied with infomation about `tomotoes` or ask customer if `tomatoes` is the one they are mentioning.
     - Allow customer to query information about a customer-define product range. For example: `any veg for a fine dinner sir?` or `any meat with price lower than 15000 per unit?`.
     - ONLY answer with actual product data. `Agent` SHOULD NEVER invent new product or new product information.
     - No need to suggest customer to put asked product into cart.
+
 - **Excercise tips**:
-    - Use an `Agent Action` to fetch product data from back-end.
-    - This fetching should happen only once and keep in memory for reference.
-    - Instruct `Agent` to reference product data in LLM instruction.
+    - Use `Agent Action` to fetch product information from back-end.
+    - Use `Agent Variable` to remember product information and refer through out the conversation.
+    - Use `Conditional Expressions` to fetch product information only once.
+    - In `Reasoning Instructions`, refer to product data in LLM instruction.
+
+[Agent Script Reference: Variables](https://developer.salesforce.com/docs/ai/agentforce/guide/ascript-ref-variables.html)
+
+[Agent Script Reference: Actions](https://developer.salesforce.com/docs/ai/agentforce/guide/ascript-ref-actions.html)
+
+[Agent Script Reference: Conditional Expressions](https://developer.salesforce.com/docs/ai/agentforce/guide/ascript-ref-expressions.html)
+
+[Agent Script Reference: Reasoning Instructions](https://developer.salesforce.com/docs/ai/agentforce/guide/ascript-ref-instructions.html)
 
 ### Exercise 5: Create subagents for cart operation (Add / Remove / Update)
 - **Jobs To Be Done**: allow customer to add product / remove product / update product quantity in their shopping cart.
+
 - **Functional Requirement**:
     - Allow customer to request operation by product name or product code.
     - Don't outright refuse the query if product name is incorrect or having typo. `Agent` would be able to find a reasonable product with similar name and suggest user if it's the correct one.
@@ -130,38 +152,76 @@ Configure Config block:
     - Our product is divisible, `Agent` should allow customer to buy a fraction of a product. For example: `get me a quarter of kg of Tomato` should be accepted and add 0.25 kg Tomato to shopping cart.
     - `Agent` should be able to infer product and quantity from customer chat without providing any static form.
     - System need to check if the requested product is available before proceeding.
+    - Only proceed product adding or quantity updating if product is available.
     - Once proceeded, summary new cart to customer for their information.
+
 - **Excercise tips**:
-    - Use `Agent Action` to do product availability check and add to cart.
-    - Cart after processing should be keep in memory for agent reference.
-    - Use `available when` to restrict subagent access.
-    - Use `available when` to avoid multiple `Tools` call.
-    - Use `slot filling` to infer product code and quantity from customer utterance.
+    - Use `Tools` to check product availability and add to cart.
+    - Use `Agent Variable` to keep cart information.
+    - Use `Subagent Gating` to restrict subagent access and tools call.
+    - Use `Conditional Actions` to restrict tools call.
+    - Use `Slot Filling` to infer product code and quantity from customer utterance.
+    - Use `Action Chaining` to conditionally call cart update method after product availability checking method is success.
+
+[Agent Script Reference: Tools (Reasoning Actions)](https://developer.salesforce.com/docs/ai/agentforce/guide/ascript-ref-tools.html)
+
+[Subagent Gating](https://developer.salesforce.com/docs/ai/agentforce/guide/ascript-patterns-topic-selector.html#subagent-gating)
+
+[Conditional Actions](https://developer.salesforce.com/docs/ai/agentforce/guide/ascript-patterns-conditionals.html#conditional-actions)
+
+[Agent Script Pattern: Action Chaining and Sequencing](https://developer.salesforce.com/docs/ai/agentforce/guide/ascript-patterns-action-chaining.html)
+
+[Slot Filling](https://developer.salesforce.com/docs/ai/agentforce/guide/ascript-patterns-variables.html#let-the-llm-set-variables-with-user-entered-information-slot-filling)
 
 ### Excercise 6: Create cart checkout subagent
 - **Jobs To Be Done**: allow customer to checkout their shopping cart with checkout information.
+
 - **Functional Requirement**:
-    - Customer need to provide name, email & delivery address for checkout.
-    - Only do checkout if customer have cart with product. If shopping cart is empty, politely let customer know they need to add product to cart first.
+    - Customer need to provide name, email & delivery address before checkout.
+    - Only do checkout if customer having cart with product. If shopping cart is empty, politely let customer know they need to add product to cart first.
     - `Agent` should collect checkout data via chat with customer. Don't offer static form to collect data.
     - An Order must be created as result of checkout.
     - Cart Items must be captured as Order Item and link to above Order. Order Item must link to correct product and quantity.
     - System lookup for provided email in database. If a person account is found, link Order to this person account. Else create a new person account and link to Order.
 
+- **Excercise tips**:
+    - Use `Slot Filling` to collect customer name, email & delivery address.
+    - Use `Conditional Instructions` to instruct `Agent` to refuse customer if customer having no cart with product.
+
+[Conditional Instructions](https://developer.salesforce.com/docs/ai/agentforce/guide/ascript-patterns-conditionals.html#conditional-instructions)
+
 ### Excercise 7: Create general culinary knowledge subagent
 - **Jobs To Be Done**: having small talks with customer about general culinary knowledge and suggest our products when available.
+
 - **Functional Requirement**:
     - Having small talks with customer about general culinary knowledge.
     - Depend on the context, the reply should be relevant to customer selected product or our offered product. For example: `how can I best prepare this salmon for dinner?` should provide the culinary knowledge answer and suggest we have `salt` or `pepper` that might fit to `salmon preparation for dinner`.
+
 - **Excercise tips**:
     - Refer shop products and shopping cart in the reasoning instruction.
 
-### Excercise 8: Test Agent with Agentforce Test Center and AgentforceDX
-**Test with Agentforce Test Center**
-**Test with AgentforceDX**
+### Excercise 8: Publish & Activate Agent
+Publishing an authoring bundle refers to using the Agent Script file to generate Bot and GenAi* metadata. The publishing can be done from `Agentforce Studio` or SF CLI.
 
-### Excercise 9: Publish Agent and deploy to Enhanced Chat
-Publishing an authoring bundle refers to using the Agent Script file to generate Bot and GenAi* metadata. The publishing can be done from `Agentforce Builder` or SF CLI.
+SF CLI command to publish Agent
+```bash
+sf agent publish authoring-bundle --skip-retrieve
+```
+
+In `Agentforce Studio`:
+- Select `Agent` to publish.
+- Click Commit Version button.
+
+After published, don't forget to Activate the `Agent`.
+
+### Excercise 9: Test Agent
+The dynamic nature of conversation post unique challenge for `Agent` testing.
+- **Component & Flow Testing**: Test individual steps in the agent's logic before evaluating the whole conversation.
+- **Tool & API Verification**: tool access & execution must be isolated and tested.
+- **Guardrail & Security Testing**: Jailbreaking, Prompt Injection, PII Exfiltration
+
+### Excercise 10: Deploy Agent to Enhanced Chat
+
 
 ```bash
 sf agent publish authoring-bundle
@@ -171,7 +231,45 @@ If test from localhost:
 - Add localhost to Site's Allow Framing Origin
 - Add localhost to CORS setting
 
-### Excercise 10: Monitor Agent performance and feedback
+### Excercise 11: Monitor Agent performance and feedback
+
+[Monitor Agentforce Service Agents](https://help.salesforce.com/s/articleView?id=service.omnichannel_monitor_service_agents.htm&type=5)
+[Agentforce Session Tracing](https://help.salesforce.com/s/articleView?id=ai.generative_ai_session_trace.htm&type=5)
+
+### Excercise 12: Deploy Agent to Other Org
+Deploy agent metadata
+```xml
+<types>
+        <members>*</members>
+        <name>GenAiFunction</name>
+    </types>
+
+    <types>
+        <members>*</members>
+        <name>Bot</name>
+    </types>
+
+    <types>
+        <members>*</members>
+        <name>GenAiPlannerBundle</name>
+    </types>
+
+    <types>
+        <members>*</members>
+        <name>GenAiPlugin</name>
+    </types>
+    
+    <types>
+        <members>*</members>
+        <name>AiAuthoringBundle</name>
+    </types>
+
+    <types>
+        <members>*</members>
+        <name>AiEvaluationDefinition</name>
+    </types>
+```
+Deploy using ADX CLI
 
 ## Agentforce Help Documents
 
