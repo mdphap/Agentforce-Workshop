@@ -167,6 +167,10 @@ Publishing an authoring bundle refers to using the Agent Script file to generate
 sf agent publish authoring-bundle
 ```
 
+If test from localhost:
+- Add localhost to Site's Allow Framing Origin
+- Add localhost to CORS setting
+
 ### Excercise 10: Monitor Agent performance and feedback
 
 ## Agentforce Help Documents
