@@ -13,5 +13,6 @@
     "@prettier/plugin-xml": "^3.4.1",
     "prettier": "^3.5.3",
     "prettier-plugin-apex": "^2.2.6"
-  }
+  },
+  "type": "module"
 }
