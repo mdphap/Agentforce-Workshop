@@ -201,27 +201,34 @@ Configure Config block:
     - Refer shop products and shopping cart in the reasoning instruction.
 
 ### Excercise 8: Publish & Activate Agent
-Publishing an authoring bundle refers to using the Agent Script file to generate Bot and GenAi* metadata. The publishing can be done from `Agentforce Studio` or SF CLI.
+Publishing an authoring bundle refers to using the Agent Script file to generate Bot and GenAi* metadata. The publishing can be done from `Agentforce Studio`:
+- Select `Agent` to publish.
+- Click Commit Version button.
 
-SF CLI command to publish Agent
+OR using `sf` command to publish Agent
 ```bash
 sf agent publish authoring-bundle --skip-retrieve
 ```
 
-In `Agentforce Studio`:
-- Select `Agent` to publish.
-- Click Commit Version button.
+After published, activate the `Agent` In `Agentforce Studio`.
 
-After published, don't forget to Activate the `Agent`.
+[Publish an Authoring Bundle to Your Org](https://developer.salesforce.com/docs/ai/agentforce/guide/agent-dx-nga-publish.html)
 
 ### Excercise 9: Test Agent
-The dynamic nature of conversation post unique challenge for `Agent` testing.
-- **Component & Flow Testing**: Test individual steps in the agent's logic before evaluating the whole conversation.
-- **Tool & API Verification**: tool access & execution must be isolated and tested.
-- **Guardrail & Security Testing**: Jailbreaking, Prompt Injection, PII Exfiltration
+The non-deterministic nature of conversation post unique challenge for `Agent` testing and require a shift in mindset & tools. `Agentforce Testing Center` built specifically to test `Agent` and support range of tools for autonomous agent testing. 
+ 
+For our workshop, perform the following tests with our `Agent`:
+| Test Category | Test Case | Details |
+| -------- | -------- | -------- |
+| Unit Prompt | Agent Router (S) | Use single-turn utternace to evaluate `Agent` can route to Query Product subagent |
+| Multi-turn Prompt | Agent Router (M) | Use multi-turn utternaces to evaluate `Agent` can route to Cart Operation subagent |
+| Tool Usage | Add Product To Cart Action | Use multi-turn utternaces to evaluate `Agent` can call correct action to add product to cart |
+| Conversation Flow | Checkout Success | Use multi-turn utternaces to evaluate `Agent` can finish typical order conversation |
+
+For each test, generate a suite of prompt variants and run the suite from `Agentforce Testing Center`.
 
 ### Excercise 10: Deploy Agent to Enhanced Chat
-
+Host `store/index.html` in your favorite
 
 ```bash
 sf agent publish authoring-bundle
