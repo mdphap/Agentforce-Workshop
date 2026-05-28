@@ -215,21 +215,26 @@ After published, activate the `Agent` In `Agentforce Studio`.
 [Publish an Authoring Bundle to Your Org](https://developer.salesforce.com/docs/ai/agentforce/guide/agent-dx-nga-publish.html)
 
 ### Excercise 9: Test Agent
-The non-deterministic nature of conversation post unique challenge for `Agent` testing and require a shift in mindset & tools. `Agentforce Testing Center` built specifically to test `Agent` and support range of tools for autonomous agent testing. 
+The non-deterministic nature of conversation post unique challenge for `Agent` testing and require a shift in mindset & tools. `Agentforce Testing Center` built specifically to test `Agent` and support wide range of tools for autonomous agent testing.
  
 For our workshop, perform the following tests with our `Agent`:
 | Test Category | Test Suite | Details |
 | -------- | -------- | -------- |
-| Unit Prompt | Agent Router (S) | Use single-turn utternace to evaluate `Agent` can route to Query Product subagent |
-| Multi-turn Prompt | Agent Router (M) | Use multi-turn conversation to evaluate `Agent` can route to Cart Operation subagent |
-| Tool Usage | Add Product To Cart Action | Use multi-turn conversation to evaluate `Agent` can call correct action to add product to cart |
+| Subagent Router, Tool Usage | Query Product | Use single utternace to evaluate `Agent` can route to Query Product subagent |
+| Subagent Router, Tool Usage | Add Product | Use multi-turn conversation to evaluate `Agent` can route to Cart Operation subagent |
 | Conversation Flow | Checkout Success | Use multi-turn conversation to evaluate `Agent` can finish typical order conversation |
 
-A test suite can be created as CSV file or using `sf` command.
-
- and run the suite from `Agentforce Testing Center`.
+Steps:
+1. Create specs folder
+2. Create test spec YAML and configure test case. Use `Sample Test Spec.yaml` as reference.
+3. Create agent test from test spec
+```bash
+sf agent test create
+```
+4. Run and monitor test result from `Agentforce Testing Center`
 
 [Customize the Agent Test Spec](https://developer.salesforce.com/docs/ai/agentforce/guide/agent-dx-test-customize.html)
+[Create an Agent Test from the Spec File](https://developer.salesforce.com/docs/ai/agentforce/guide/agent-dx-test-create.html)
 
 ### Excercise 10: Deploy Agent to Enhanced Chat
 1. Deploy `store/index.html` to your favorite static site host. If you would like to host locally, run the below script to host it at localhost:3000
