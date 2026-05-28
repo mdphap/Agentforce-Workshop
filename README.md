@@ -234,16 +234,17 @@ sf agent test create
 4. Run and monitor test result from `Agentforce Testing Center`
 
 [Customize the Agent Test Spec](https://developer.salesforce.com/docs/ai/agentforce/guide/agent-dx-test-customize.html)
+
 [Create an Agent Test from the Spec File](https://developer.salesforce.com/docs/ai/agentforce/guide/agent-dx-test-create.html)
 
 ### Excercise 10: Deploy Agent to Enhanced Chat
-1. Deploy `store/index.html` to your favorite static site host. If you would like to host locally, run the below script to host it at localhost:3000
+Deploy `store/index.html` to your favorite static site host. If you would like to host locally, run the below script to host it at localhost:3000
 
 ```bash
 npm run store-preview
 ```
 
-2. In `Shopping_Chat_Omni_Flow.flow-meta.xml`, replace `stringValue` in this tag to your `Agent`'s developer name.
+In `Shopping_Chat_Omni_Flow.flow-meta.xml`, replace `stringValue` in this tag to your `Agent`'s developer name.
 ```xml
 <inputParameters>
     <name>copilotLabel</name>
@@ -253,14 +254,16 @@ npm run store-preview
 </inputParameters>
 ```
 
-3. Deploy chat components to your org with following command:
+Deploy chat components to your org with following command:
 ```bash
 sf project deploy start --manifest "manifest\chat.xml"
 ```
 
-4. Whitelist your hosted store domain:
+Whitelist your hosted store domain:
 - Add domain / localhost to Site's Allow Framing Origin
 - Add domain / localhost to CORS setting
+
+Update `store/index.html` with your messaging channel configurations.
 
 ### Excercise 11: Monitor Agent performance and feedback
 
