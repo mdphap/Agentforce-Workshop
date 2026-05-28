@@ -237,7 +237,7 @@ sf agent test create
 
 [Create an Agent Test from the Spec File](https://developer.salesforce.com/docs/ai/agentforce/guide/agent-dx-test-create.html)
 
-### Excercise 10: Deploy Agent to Enhanced Chat
+### Excercise 10: Employ Agent to Enhanced Chat
 Deploy `store/index.html` to your favorite static site host. If you would like to host locally, run the below script to host it at localhost:3000
 
 ```bash
