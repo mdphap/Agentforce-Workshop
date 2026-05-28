@@ -218,25 +218,44 @@ After published, activate the `Agent` In `Agentforce Studio`.
 The non-deterministic nature of conversation post unique challenge for `Agent` testing and require a shift in mindset & tools. `Agentforce Testing Center` built specifically to test `Agent` and support range of tools for autonomous agent testing. 
  
 For our workshop, perform the following tests with our `Agent`:
-| Test Category | Test Case | Details |
+| Test Category | Test Suite | Details |
 | -------- | -------- | -------- |
 | Unit Prompt | Agent Router (S) | Use single-turn utternace to evaluate `Agent` can route to Query Product subagent |
-| Multi-turn Prompt | Agent Router (M) | Use multi-turn utternaces to evaluate `Agent` can route to Cart Operation subagent |
-| Tool Usage | Add Product To Cart Action | Use multi-turn utternaces to evaluate `Agent` can call correct action to add product to cart |
-| Conversation Flow | Checkout Success | Use multi-turn utternaces to evaluate `Agent` can finish typical order conversation |
+| Multi-turn Prompt | Agent Router (M) | Use multi-turn conversation to evaluate `Agent` can route to Cart Operation subagent |
+| Tool Usage | Add Product To Cart Action | Use multi-turn conversation to evaluate `Agent` can call correct action to add product to cart |
+| Conversation Flow | Checkout Success | Use multi-turn conversation to evaluate `Agent` can finish typical order conversation |
 
-For each test, generate a suite of prompt variants and run the suite from `Agentforce Testing Center`.
+A test suite can be created as CSV file or using `sf` command.
+
+ and run the suite from `Agentforce Testing Center`.
+
+[Customize the Agent Test Spec](https://developer.salesforce.com/docs/ai/agentforce/guide/agent-dx-test-customize.html)
 
 ### Excercise 10: Deploy Agent to Enhanced Chat
-Host `store/index.html` in your favorite
+1. Deploy `store/index.html` to your favorite static site host. If you would like to host locally, run the below script to host it at localhost:3000
 
 ```bash
-sf agent publish authoring-bundle
+npm run store-preview
 ```
 
-If test from localhost:
-- Add localhost to Site's Allow Framing Origin
-- Add localhost to CORS setting
+2. In `Shopping_Chat_Omni_Flow.flow-meta.xml`, replace `stringValue` in this tag to your `Agent`'s developer name.
+```xml
+<inputParameters>
+    <name>copilotLabel</name>
+    <value>
+        <stringValue>Sapphire</stringValue>
+    </value>
+</inputParameters>
+```
+
+3. Deploy chat components to your org with following command:
+```bash
+sf project deploy start --manifest "manifest\chat.xml"
+```
+
+4. Whitelist your hosted store domain:
+- Add domain / localhost to Site's Allow Framing Origin
+- Add domain / localhost to CORS setting
 
 ### Excercise 11: Monitor Agent performance and feedback
 
@@ -277,6 +296,8 @@ Deploy agent metadata
     </types>
 ```
 Deploy using ADX CLI
+
+[Agent Metadata: A Shallow Dive](https://developer.salesforce.com/docs/ai/agentforce/guide/agent-dx-metadata.html)
 
 ## Agentforce Help Documents
 

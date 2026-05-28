@@ -1,0 +1,71 @@
+name: Add Product
+description: Test for Add Product Routing
+subjectType: AGENT
+subjectName: Sapphire
+subjectVersion: v2
+testCases:
+  - utterance: Great, get me 1 of it!
+    contextVariables:
+      - name: EndUserLanguage
+        value: English
+    customEvaluations: []
+    conversationHistory:
+      - role: user
+        message: hi, is Greek Yogurt available?
+      - role: agent
+        message: Yes, Greek Yogurt is available. It comes in a 500g tub and is described as thick and creamy plain Greek yogurt. Would you like to know more about its price or how you can use it in recipes?
+    expectedTopic:
+      - add_product_items
+    expectedActions:
+      - get_listed_products
+      - check_inventory_and_return_cart_item
+      - update_product_cart
+    expectedOutcome: |-
+      Greek Yogurt has been added to your shopping cart. Here is your updated cart summary:
+
+      Product name: Greek Yogurt
+      Product code: DE-006
+      Unit of Measure: 500g tub
+      Quantity: 1
+      Unit Price: 28,600
+      Product Price: 28,600
+      Total Price: 28,600
+      Would you like to proceed with your order or need help with anything else?
+    metrics:
+      - completeness
+      - coherence
+      - conciseness
+      - output_latency_milliseconds
+  - utterance: Good, get me 1 lemon soda and 2 apple juice.
+    contextVariables: []
+    customEvaluations: []
+    conversationHistory:
+      - role: user
+        message: what beverages you have in stock?
+      - role: agent
+        message: |-
+          Here are the beverages currently in stock:
+
+          Lemon Soda (Lemon-lime carbonated soft drink, 1.5L bottle)
+          Cola Soda (Classic cola carbonated drink, 1.5L bottle)
+          Mineral Water (Still mineral drinking water, 1.5L bottle)
+          Apple Juice (Clear apple juice, 1L carton)
+          Orange Juice (100% fresh squeezed orange juice, 1L)
+          Green Tea Bags (Pack of 25)
+          Black Tea Bags (Pack of 25)
+          Drip Coffee (Medium roast ground drip coffee, 250g pack)
+    expectedTopic:
+      - add_product_items
+    expectedActions:
+      - get_listed_products
+      - check_inventory_and_return_cart_item
+      - update_product_cart
+    expectedOutcome: |-
+      I have added 1 Lemon Soda (Product code: BV-008, Unit: bottle, Unit Price: 28,600, Product Price: 28,600) to your cart.
+
+      Currently, I can only process one item at a time. Would you like to proceed by adding 2 Apple Juice next? If so, please confirm and I will add them for you.
+    metrics:
+      - completeness
+      - coherence
+      - conciseness
+      - output_latency_milliseconds
